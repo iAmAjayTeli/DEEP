@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "201899779799",
+    "project_id": "visionbank-6eb23",
+    "storage_bucket": "visionbank-6eb23.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201899779799:android:5e52f677ba47134fafb292",
+        "android_client_info": {
+          "package_name": "com.example.deep"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmA-ZQ7oBKXepcX12-g8O6uWPsYsU6fus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
