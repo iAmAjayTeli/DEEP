@@ -1,6 +1,7 @@
-package com.example.deep.view
+package com.example.deep.view.user
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -22,9 +23,17 @@ class SpalshScreen : AppCompatActivity() {
             insets
         }
 
-        Handler(Looper.getMainLooper()).postDelayed(3000) {
-            startActivity(Intent(this, OnBoarding::class.java))
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            val sharedPreferences: SharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE)
+            val isFirstLaunch = sharedPreferences.getBoolean("isFirstLaunch", true)
+
+            if (isFirstLaunch) {
+                startActivity(Intent(this, OnBoarding::class.java))
+            } else {
+                startActivity(Intent(this, MainActivity::class.java))
+            }
             finish()
-        }
+        }, 2000)
     }
 }

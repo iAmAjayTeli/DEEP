@@ -1,14 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.OnBoarding">
+    tools:context=".view.user.OnBoarding">
 
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#1B3F3B3B"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="70dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_gravity="bottom"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="100dp"
+               android:gravity="bottom|center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/lexend_semibold"
+                    android:text="Welcome to Deep"
+                    android:textColor="#B9000000"
+                    android:textSize="19sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Help bring light into someone's life by donating the gift of sight."
+                    android:textColor="#A8000000"
+                    android:layout_marginTop="5dp"
+                    android:textAlignment="center"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/next"
+                android:layout_width="50dp"
+                android:layout_height="33dp"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/arrow"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="25dp"
+                android:clickable="true"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                app:tint="#3949AB" />
+
+
+
+        </RelativeLayout>
+
+
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
