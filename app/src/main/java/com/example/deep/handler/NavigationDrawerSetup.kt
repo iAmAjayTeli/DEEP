@@ -45,7 +45,6 @@ NavigationDrawerSetup(
 
     private fun commonDrawerItem(): List<DrawerItem> {
         return listOf(
-            DrawerItem(R.drawable.home, "Home"),
             DrawerItem(R.drawable.eye_bank, "Eye Bank"),
             DrawerItem(R.drawable.eye_pledge, "Pledge"),
             DrawerItem(R.drawable.terms_condition, "FAQ"),
@@ -59,7 +58,6 @@ NavigationDrawerSetup(
 
     private fun handleDrawerItemClick(title: String) {
         when (title) {
-            "Home" -> navigateTo(MainActivity())
 
             "Eye Bank" -> {
                 navigateTo(EyeBank())
