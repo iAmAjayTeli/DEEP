@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="textColor">#FF768689</color>
+    <color name="subHeadingColor">#FF888888</color>
+    <color name="dark">#C8000000</color>
+    <color name="headingColor">#FF1098F7</color>
+    <color name="grey">#808080</color>"
+    <color name="cardColor">#F3F5FA</color>
+
 </resources>

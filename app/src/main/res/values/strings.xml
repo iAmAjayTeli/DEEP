@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">DEEP</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back">Back</string>
+    <string name="expand_collapse">Expand/Collapse</string>
+
+    <!-- FAQ Questions -->
+    <string name="faq_q1">What is an eye donation?</string>
+    <string name="faq_q2">Who is eligible to donate eyes?</string>
+    <string name="faq_q3">What are cornea and corneal transplantation?</string>
+    <string name="faq_q4">What is an eye bank, and how do you make contact for eye donation?</string>
+    <string name="faq_q5">What precautions are to be taken by relatives?</string>
+    <string name="faq_q6">What is the procedure of eye collection?</string>
+    <string name="faq_q7">What are the possible complications or disfigurements during eye collection?</string>
+    <string name="faq_q8">What happens after eye donation?</string>
+    <string name="faq_q9">How do I ensure that the eyes donated will be used rightly?</string>
+
+    <!-- FAQ Answers -->
+    <string name="faq_a1">Eye donation refers to pledging to donate one\'s eyes after death. Donated eyes are used for corneal blind patients to restore vision. It is a voluntary act done for the benefit of society, which causes no harm to the sentiments and religious faiths of the deceased family. In most circumstances, one persons eyes can help rebuild the vision of two blinds.</string>
+    <string name="faq_a2">• Eyes can be donated by anyone, irrespective of age, sex, or blood group.\n• Eyes affected by eye problems of short-sightedness, long-sightedness, astigmatism, or even operated cataract surgery are still eligible for an eye donation since the cornea is not affected by these eye problems.\n• Health diseases: diabetics, hypertension, and asthma, which are not communicable, still allow one to donate their eyes.\n• Diseases that make one ineligible to donate eyes are AIDS, Hepatitis B or C, rabies, septicemia, acute leukemia, tetanus, cholera, meningitis, or encephalitis.\n• Eyes unfit medically for the donation are utilized for medical research and studies.</string>
+    <string name="faq_a3">The cornea is the front transparent layer of the eyes. It is significant for the vision and its focus. If the cornea becomes cloudy for any reason, it results in vision loss, also known as corneal blindness. Corneal transplantation is a surgery that includes the replacement of the defective cornea with a healthy cornea received by eye donation.</string>
+    <string name="faq_a4">An eye bank is a charitable organization that preserves, collects, examines, and provides donated eyes. It is formed and administered under strict medical standards. India\'s eye bank helpline number is 1919, toll-free and available 24×7. It helps regarding eye donation as well as related information.</string>
+    <string name="faq_a5">• The eyes of the deceased are to be closed, or moist cotton can be placed over the eyes.\n• Raise the donor\'s head about six inches to reduce the bleeding during eye collection with a pillow.\n• Switch off all the fans.\n• Cover the deceased\'s forehead with an ice pack or polythene filled with ice cubes.\n• To prevent eye infections, instill antibiotic eye drops at regular intervals.\n• Notify the eye bank as soon as possible.</string>
+    <string name="faq_a6">After informing the eye bank about the donation, a team of an eye doctor, a grief counselor, and trained staff is sent to the deceased\'s place or hospital. The team will take the written consent of the family before processing further. Also, questions about medical history are asked. With great efficiency and under strict aseptic standards, eyes are collected in privacy, taking not more than ten minutes. The defective area over the eyes is restored carefully.</string>
+    <string name="faq_a7">There is temporary bleeding caused in the area from where eyes are collected, in case the whole eyeball is obtained. The medical team works with high precision; eyes are properly closed to save any disfigurement. There is another method where only the cornea is collected instead of the whole eyeball, which is later replaced by a plastic cornea to cause no disfigurement.</string>
+    <string name="faq_a8">• Eye bank acknowledges the donor\'s family with a certificate of appreciation.\n• The medical team takes the collected eyes to the eye bank for examination.\n• The examination includes different tests by the corneal surgeon on the tissue.\n• As per the waiting list, the recipient of the eyes is contacted for a corneal transplant.\n• A corneal transplant is done, which is followed by a regular examination.</string>
+    <string name="faq_a9">Eye donation is a legal act. All eye banks are registered and operated under the Transplantation of Human Organs Act, 1994. The government takes strict actions in case of any complaint against the eye bank.</string>
 </resources>

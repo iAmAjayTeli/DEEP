@@ -14,8 +14,7 @@ import com.example.deep.databinding.NavHeaderBinding
 import com.example.deep.model.DrawerItem
 import com.example.deep.view.user.AboutUs
 import com.example.deep.view.user.EyeBank
-import com.example.deep.view.user.FAQ
-import com.example.deep.view.user.MainActivity
+import com.example.deep.view.user.HelpSupport
 import com.example.deep.view.user.Pledge
 import com.example.deep.view.user.SuccessStories
 
@@ -47,7 +46,7 @@ NavigationDrawerSetup(
         return listOf(
             DrawerItem(R.drawable.eye_bank, "Eye Bank"),
             DrawerItem(R.drawable.eye_pledge, "Pledge"),
-            DrawerItem(R.drawable.terms_condition, "FAQ"),
+            DrawerItem(R.drawable.terms_condition, "Help & Support"),
             DrawerItem(R.drawable.about_us, "About Us"),
             DrawerItem(R.drawable.success, "Success Stories"),
             DrawerItem(R.drawable.login, "Admin Login")
@@ -67,8 +66,8 @@ NavigationDrawerSetup(
                 navigateTo(Pledge())
             }
 
-            "FAQ"->{
-               navigateTo(FAQ())
+            "Help & Support"->{
+               navigateTo(HelpSupport())
             }
 
             "About Us" -> {
@@ -80,7 +79,7 @@ NavigationDrawerSetup(
             }
 
             "Admin Login"->{
-                navigateTo(FAQ())
+                navigateTo(HelpSupport())
             }
         }
     }
