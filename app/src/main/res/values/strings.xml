@@ -30,4 +30,61 @@
       The "Life after Life" mobile application is your gateway to understanding and participating in the noble act of eye donation. This app is designed to inform, inspire, and facilitate eye donation in India, where millions of people suffer from visual impairments, often preventable or treatable through corneal transplantation.\n\n
       Our mobile app is your comprehensive resource for everything related to eye donation in India, from understanding the importance of eye donation to finding donation centres (eye banks) and even becoming an eye donor.\n\n
       Let\'s embark on a journey to make a meaningful impact on the lives of those struggling with vision loss.</string>
+    <string name="full_name">Full Name</string>
+
+
+    <string-array name="bloodGroups">
+
+        <item>Blood Group</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+
+    </string-array>
+
+    <string-array name="indian_states">
+        <item>Select State</item>
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand</item>
+        <item>West Bengal</item>
+        <item>Andaman and Nicobar Islands</item>
+        <item>Chandigarh</item>
+        <item>Dadra and Nagar Haveli and Daman and Diu</item>
+        <item>Delhi</item>
+        <item>Jammu and Kashmir</item>
+        <item>Ladakh</item>
+        <item>Lakshadweep</item>
+        <item>Puducherry</item>
+
+    </string-array>
 </resources>

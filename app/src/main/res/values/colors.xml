@@ -8,5 +8,9 @@
     <color name="headingColor">#FF1098F7</color>
     <color name="grey">#808080</color>"
     <color name="cardColor">#F3F5FA</color>
+    <color name="cardColor2">#3ECA7B65</color>
+    <color name="blue">#167BC4</color>
+    <color name="edttextBg">#E2E2E3</color>
+    <color name="darkgren">#53B175</color>
 
 </resources>
