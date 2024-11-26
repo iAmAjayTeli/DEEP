@@ -122,13 +122,104 @@
                     </RelativeLayout>
                 </LinearLayout>
 
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            app:srcCompat="@drawable/logo"
+                            android:layout_marginTop="30dp"/>
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/lexend_semibold"
+                            android:text="See Beyond Today"
+                            android:textAlignment="center"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/lexend_semibold"
+                            android:text="Register as a donor and help someone see the world."
+                            android:textAlignment="center"
+                            android:textSize="14sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button"
+                            style="@style/Widget.Material3.Button.ElevatedButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="@color/blue"
+                            android:elevation="10dp"
+                            android:text="Register as a Donor"
+                            android:textColor="@color/action_color"
+                            app:cornerRadius="10dp" />
+
+                        <Button
+                            android:id="@+id/button2"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Register as a Hospital"
+                            android:textColor="@color/blue"
+                            app:cornerRadius="10dp"
+                            app:rippleColor="@color/blue"
+                            app:strokeColor="@color/blue" />
+
+
+
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_marginTop="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:textAlignment="center"
+                                android:fontFamily="@font/lexend"
+                                android:text="One eye donation can make two blind people see "
+                                android:textStyle="bold" />
+
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+
+                </ScrollView>
+
+
             </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <!-- Navigation Drawer -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
