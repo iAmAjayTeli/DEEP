@@ -11,7 +11,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deep.R
 import com.example.deep.adapter.EyeBankAdapter
 import com.example.deep.api.RetrofitClient
@@ -35,7 +34,17 @@ class EyeBankScreen : AppCompatActivity() {
         }
 
         getCurrentLocationAndFetchPlaces()
+        setUpClickListener()
 
+    }
+
+
+    private fun setUpClickListener() {
+        binding.apply {
+            backButton.setOnClickListener {
+                onBackPressed()
+            }
+        }
     }
 
     private fun fetchNearbyEyeBanks(latitude: Double, longitude: Double) {

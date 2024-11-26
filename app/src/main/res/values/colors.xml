@@ -12,5 +12,6 @@
     <color name="blue">#167BC4</color>
     <color name="edttextBg">#E2E2E3</color>
     <color name="darkgren">#53B175</color>
+    <color name="action_color">#EBEBEB</color>
 
 </resources>

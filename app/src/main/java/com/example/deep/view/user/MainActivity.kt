@@ -24,13 +24,13 @@ class MainActivity : AppCompatActivity() {
         binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
             insets
         }
 
         drawerLayout = binding.drawerLayout
 
-        val menuIcon=binding.menuIc
+        val menuIcon=binding.menuIcon
 
         setupNavigationDrawer()
         clickListeners()
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun clickListeners() {
         binding.apply {
-            menuIc.setOnClickListener {
+            menuIcon.setOnClickListener {
                 drawerLayout.openDrawer(GravityCompat.START)
             }
 
