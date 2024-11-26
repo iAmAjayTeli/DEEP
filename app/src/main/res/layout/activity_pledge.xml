@@ -8,7 +8,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.user.Pledge">
+        tools:context=".view.user.PledgeScreen">
 
         <LinearLayout
             android:id="@+id/backLinear"
@@ -68,7 +68,7 @@
 
 
                     <TextView
-                        android:id="@+id/groceryKitchen"
+                        android:id="@+id/personalDetailsTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -84,7 +84,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/groceryKitchen"
+                        android:layout_toEndOf="@id/personalDetailsTxt"
                         android:background="#1D000000" />
 
                 </RelativeLayout>
@@ -111,6 +111,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
                         android:paddingStart="50dp"
                         android:textSize="15sp" />
 
@@ -136,16 +137,19 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
+                        android:inputType="textEmailAddress"
                         android:paddingStart="50dp"
                         android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/bloodGroupLayout"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginBottom="10dp"
+                    android:minHeight="48dp"
                     android:textColorHint="@color/grey"
                     app:boxBackgroundColor="@color/grey"
                     app:boxStrokeColor="@color/blue"
@@ -166,6 +170,7 @@
                         android:dropDownSelector="@color/white"
                         android:fontFamily="@font/lexend_medium"
                         android:inputType="none"
+                        android:minHeight="48dp"
                         android:textColor="#A1000000"
                         android:textColorLink="@color/blue"
                         android:textSize="15sp"
@@ -194,6 +199,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_back"
+                        android:cursorVisible="false"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:fontFamily="@font/lexend_medium"
@@ -204,6 +210,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/phoneNumberLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -217,7 +224,9 @@
                         android:background="@drawable/edt_back"
                         android:clickable="false"
                         android:drawablePadding="5dp"
+                        android:editable="false"
                         android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:fontFamily="@font/lexend_medium"
                         android:gravity="center_vertical"
                         android:paddingStart="16dp"
@@ -236,7 +245,7 @@
                         android:fontFamily="@font/lexend_medium"
                         android:hint="Mobile Number"
                         android:inputType="phone|number"
-                        android:maxLength="15"
+                        android:maxLength="10"
                         android:paddingStart="16dp"
                         android:textSize="15sp" />
 
@@ -263,6 +272,7 @@
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
                         android:paddingStart="50dp"
+                        android:inputType="text"
                         android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -287,6 +297,7 @@
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
                         android:inputType="number"
+                        android:maxLength="6"
                         android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -310,6 +321,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
+                        android:inputType="number"
+                        android:maxLength="3"
                         android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -333,6 +346,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
                         android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -387,6 +401,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
                         android:paddingStart="50dp"
                         android:textSize="15sp" />
 
@@ -406,7 +421,9 @@
                         android:background="@drawable/edt_back"
                         android:clickable="false"
                         android:drawablePadding="5dp"
+                        android:editable="false"
                         android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:fontFamily="@font/lexend_medium"
                         android:gravity="center_vertical"
                         android:paddingStart="16dp"
@@ -425,14 +442,14 @@
                         android:fontFamily="@font/lexend_medium"
                         android:hint="Contact Number"
                         android:inputType="phone|number"
-                        android:maxLength="15"
+                        android:maxLength="10"
                         android:paddingStart="16dp"
                         android:textSize="15sp" />
 
                 </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/addressLayout2"
+                    android:id="@+id/emergencyAddressLayout"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginBottom="10dp"
@@ -450,6 +467,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
                         android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -514,6 +532,7 @@
                 </RelativeLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/selectStateLayout"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
@@ -564,7 +583,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -588,7 +607,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_back"
                         android:fontFamily="@font/lexend_medium"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -607,7 +626,9 @@
                         android:background="@drawable/edt_back"
                         android:clickable="false"
                         android:drawablePadding="5dp"
+                        android:editable="false"
                         android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:fontFamily="@font/lexend_medium"
                         android:gravity="center_vertical"
                         android:paddingStart="16dp"
@@ -626,9 +647,29 @@
                         android:fontFamily="@font/lexend_medium"
                         android:hint="Contact Number"
                         android:inputType="phone|number"
-                        android:maxLength="15"
+                        android:maxLength="10"
                         android:paddingStart="16dp"
                         android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15sp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/pledgeConfirmation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pledge_confirm"
+                        android:paddingStart="15dp"
+                        android:fontFamily="@font/lexend_medium"
+                        android:textColor="#92039BE5"
+                        android:textSize="12sp"/>
 
                 </LinearLayout>
 

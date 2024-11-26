@@ -13,9 +13,9 @@ import com.example.deep.adapter.DrawerAdapter
 import com.example.deep.databinding.NavHeaderBinding
 import com.example.deep.model.DrawerItem
 import com.example.deep.view.user.AboutUs
-import com.example.deep.view.user.EyeBank
+import com.example.deep.view.user.EyeBankScreen
 import com.example.deep.view.user.HelpSupport
-import com.example.deep.view.user.Pledge
+import com.example.deep.view.user.PledgeScreen
 import com.example.deep.view.user.SuccessStories
 
 class
@@ -59,11 +59,11 @@ NavigationDrawerSetup(
         when (title) {
 
             "Eye Bank" -> {
-                navigateTo(EyeBank())
+                navigateTo(EyeBankScreen())
             }
 
             "Pledge" -> {
-                navigateTo(Pledge())
+                navigateTo(PledgeScreen())
             }
 
             "Help & Support"->{

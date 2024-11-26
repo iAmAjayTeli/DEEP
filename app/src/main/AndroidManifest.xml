@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,11 @@
         android:theme="@style/Theme.DEEP"
         tools:targetApi="31">
         <activity
+            android:name=".view.user.PledgeConfirmedScreen"
+            android:exported="true" >
+
+        </activity>
+        <activity
             android:name=".view.user.AboutUs"
             android:exported="false" />
         <activity
@@ -24,10 +32,11 @@
             android:name=".view.user.HelpSupport"
             android:exported="false" />
         <activity
-            android:name=".view.user.Pledge"
-            android:exported="false" />
+            android:name=".view.user.PledgeScreen"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".view.user.EyeBank"
+            android:name=".view.user.EyeBankScreen"
             android:exported="false" />
         <activity
             android:name=".view.user.OnBoarding"
@@ -35,11 +44,13 @@
         <activity
             android:name=".view.user.SpalshScreen"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".view.user.MainActivity"

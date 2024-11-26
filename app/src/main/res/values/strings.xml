@@ -31,11 +31,14 @@
       Our mobile app is your comprehensive resource for everything related to eye donation in India, from understanding the importance of eye donation to finding donation centres (eye banks) and even becoming an eye donor.\n\n
       Let\'s embark on a journey to make a meaningful impact on the lives of those struggling with vision loss.</string>
     <string name="full_name">Full Name</string>
+    <string name="pledge_confirm">I confirm that the information provided is accurate to the best of my knowledge, and I pledge to donate my eyes upon my demise.</string>
+    <string name="home"><u>Home</u></string>
+    <string name="next_message">Your Pledge Details Have Been Successfully Submitted.\n\n ● We will reach out to you with more information and next steps when needed.\n\n ● Please ensure that your loved ones are aware of your pledge and your wish to donate.</string>
 
 
     <string-array name="bloodGroups">
 
-        <item>Blood Group</item>
+        <item>Select Blood Group</item>
         <item>A+</item>
         <item>A-</item>
         <item>B+</item>

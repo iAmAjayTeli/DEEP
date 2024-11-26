@@ -19,6 +19,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    packagingOptions {
+        resources {
+            excludes += "META-INF/NOTICE.md"
+            excludes += "META-INF/LICENSE.md"
+            excludes += "META-INF/NOTICE"
+            excludes += "META-INF/LICENSE"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -26,6 +35,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
         }
     }
     compileOptions {
@@ -54,4 +64,27 @@ dependencies {
 
     //firebase
     implementation(libs.firebase.firestore)
+
+    //lottie animation
+    implementation (libs.lottie)
+
+    //email send
+    implementation (libs.android.mail)
+    implementation (libs.android.activation)
+
+    //google maps and places
+    implementation (libs.play.services.maps)
+    implementation (libs.places)
+
+    //retrofit and gson
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation(libs.logging.interceptor)
+
+    //mapbox
+//    implementation("com.mapbox.maps:android:11.8.0")
+//    implementation ("com.mapbox.api:mapbox-geocoding:9.6.2")
+
+
+
 }

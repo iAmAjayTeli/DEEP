@@ -9,4 +9,9 @@
 
     <style name="Theme.DEEP" parent="Base.Theme.DEEP" />
 
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/popup_background</item>
+    </style>
+
+
 </resources>

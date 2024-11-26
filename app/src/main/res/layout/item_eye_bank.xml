@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="eyeBankDetails"
+            type="com.example.deep.model.EyeBank" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+           
+           <androidx.cardview.widget.CardView
+               android:layout_width="200dp"
+               android:layout_height="180dp"
+               app:cardCornerRadius="10dp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               android:layout_margin="10dp"
+               android:elevation="4dp">
+               
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:layout_gravity="center"
+                  >
+
+                  <FrameLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="90dp"
+                      >
+
+                      <ImageView
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:src="@drawable/eye_bank_item_img"
+                          android:scaleType="centerCrop"/>
+
+                      <TextView
+                          android:id="@+id/distance"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@{eyeBankDetails.distance}"
+                          android:padding="2dp"
+                          android:layout_gravity="end"
+                          android:background="@drawable/edt_back"
+                          android:textSize="11sp"
+                          android:backgroundTint="#FFB300"
+                          android:textColor="@color/white"
+                          android:fontFamily="@font/lexend"/>
+
+                  </FrameLayout>
+
+
+
+                  <TextView
+                      android:id="@+id/eyeBankName"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@{eyeBankDetails.name}"
+                      android:textAlignment="center"
+                      android:layout_marginTop="6dp"
+                      android:textSize="13sp"
+                      android:fontFamily="@font/lexend_semibold"/>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="center_horizontal"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="3dp"
+                      >
+
+                      <ImageView
+                          android:layout_width="15dp"
+                          android:layout_height="15dp"
+                          android:src="@drawable/location"
+                          android:layout_gravity="center_vertical"
+                          app:tint="@color/blue"/>
+
+                      <TextView
+                          android:id="@+id/eyeBankAddress"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@{eyeBankDetails.address}"
+                          android:textSize="11sp"
+                          android:layout_marginStart="1dp"
+                          android:layout_gravity="center"
+                          android:fontFamily="@font/lexend"/>
+
+
+                  </LinearLayout>
+
+
+                  <androidx.appcompat.widget.AppCompatButton
+                      android:id="@+id/getDirectionBtn"
+                      android:layout_width="match_parent"
+                      android:layout_height="30dp"
+                      android:layout_marginStart="15dp"
+                      android:layout_marginEnd="15dp"
+                      android:layout_marginTop="10dp"
+                      android:text="Get Directions"
+                      android:textAllCaps="false"
+                      android:background="@drawable/edt_back"
+                      android:backgroundTint="@color/darkgren"
+                      android:textColor="@color/white"/>
+
+
+              </LinearLayout>
+               
+           </androidx.cardview.widget.CardView>
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
