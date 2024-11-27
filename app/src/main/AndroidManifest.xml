@@ -17,6 +17,18 @@
         android:theme="@style/Theme.DEEP"
         tools:targetApi="31">
         <activity
+            android:name=".view.admin.AdminSetting"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.ManageSuccessStories"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.ManageHospital"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.ManagePledge"
+            android:exported="false" />
+        <activity
             android:name=".view.user.HospitalRegisteration"
             android:exported="false" />
         <activity
@@ -25,10 +37,10 @@
         <activity
             android:name=".view.admin.AdminLogin"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.user.PledgeConfirmedScreen"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".view.user.AboutUs"
             android:exported="false" />

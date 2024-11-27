@@ -16,7 +16,7 @@ class Admin {
         suspend fun getAdminCredentials(): AdminCredentials? {
             return try {
                 val result = adminRef.document("Credentials").get().await()
-                Log.e("FirestoreResult", "Document Data: ${result.data}") // Log the raw data
+                Log.e("FirestoreResult", "Document Data: ${result.data}")
                 result.toObject(AdminCredentials::class.java)
             } catch (e: Exception) {
                 e.printStackTrace()

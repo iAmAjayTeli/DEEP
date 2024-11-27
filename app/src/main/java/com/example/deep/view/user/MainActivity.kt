@@ -58,6 +58,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNavigationDrawer() {
         recyclerView = binding.drawerRecyclerview
-        NavigationDrawerSetup(this, drawerLayout, recyclerView).setupDrawer()
+        NavigationDrawerSetup(false,this, drawerLayout, recyclerView).setupDrawer()
     }
 }
