@@ -12,6 +12,7 @@ import com.example.deep.R
 import com.example.deep.adapter.DrawerAdapter
 import com.example.deep.databinding.NavHeaderBinding
 import com.example.deep.model.DrawerItem
+import com.example.deep.view.admin.AdminLogin
 import com.example.deep.view.user.AboutUs
 import com.example.deep.view.user.EyeBankScreen
 import com.example.deep.view.user.HelpSupport
@@ -85,7 +86,7 @@ NavigationDrawerSetup(
             }
 
             "Admin Login"->{
-                navigateTo(HelpSupport())
+                navigateTo(AdminLogin())
             }
         }
     }

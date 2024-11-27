@@ -20,8 +20,15 @@
             android:name=".view.user.HospitalRegisteration"
             android:exported="false" />
         <activity
+            android:name=".view.admin.AdminHome"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.AdminLogin"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
             android:name=".view.user.PledgeConfirmedScreen"
-            android:exported="true"></activity>
+            android:exported="true"/>
         <activity
             android:name=".view.user.AboutUs"
             android:exported="false" />
