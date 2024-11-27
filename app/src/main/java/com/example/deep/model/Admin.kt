@@ -1,26 +1,28 @@
 package com.example.deep.model
 
+import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 
 data class AdminCredentials(
-    val username:String,
-    val password:String
+    val username: String = "",
+    val password: String = ""
 )
 
 class Admin {
-    companion object{
+    companion object {
         private val adminRef = FirebaseFirestore.getInstance().collection("Admin")
 
         suspend fun getAdminCredentials(): AdminCredentials? {
-           return try {
-                val result= adminRef.document("Credentials").get().await()
-                return result.toObject(AdminCredentials::class.java)
-            }
-            catch (e:Exception){
+            return try {
+                val result = adminRef.document("Credentials").get().await()
+                Log.e("FirestoreResult", "Document Data: ${result.data}") // Log the raw data
+                result.toObject(AdminCredentials::class.java)
+            } catch (e: Exception) {
                 e.printStackTrace()
                 null
             }
         }
     }
 }
+
