@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             button2.setOnClickListener {
-                startActivity(Intent(this@MainActivity, EyeBankScreen::class.java))
+                startActivity(Intent(this@MainActivity, HospitalRegisteration::class.java))
 
             }
 

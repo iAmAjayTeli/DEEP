@@ -6,13 +6,12 @@ import kotlinx.coroutines.tasks.await
 
 data class Hospital(
     val hospitalName: String = "",
+    val emailAddress: String = "",
     val hospitalAddress: String = "",
     val district: String = "",
     val state: String = "",
     val contactPerson: String = "",
-    val contactNumber: String = "",
-    val emailAddress: String = "",
-    val eyeBanksNearby: String = "" // Store details or IDs of nearby eye banks
+    val contactNumber: String = ""
 )
 
 

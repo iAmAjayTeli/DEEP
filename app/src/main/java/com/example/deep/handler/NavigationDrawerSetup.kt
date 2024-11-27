@@ -15,6 +15,7 @@ import com.example.deep.model.DrawerItem
 import com.example.deep.view.user.AboutUs
 import com.example.deep.view.user.EyeBankScreen
 import com.example.deep.view.user.HelpSupport
+import com.example.deep.view.user.HospitalRegisteration
 import com.example.deep.view.user.PledgeScreen
 import com.example.deep.view.user.SuccessStories
 
@@ -80,7 +81,7 @@ NavigationDrawerSetup(
             }
 
             "Hospital Registration"->{
-                navigateTo(SuccessStories())
+                navigateTo(HospitalRegisteration())
             }
 
             "Admin Login"->{

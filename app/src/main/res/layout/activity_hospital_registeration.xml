@@ -1,10 +1,354 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.user.HospitalRegisteration">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.user.PledgeScreen">
+
+        <LinearLayout
+            android:id="@+id/backLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/card_background"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/back"
+                android:padding="5dp"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/screenTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexend_semibold"
+                android:text="Hospital Registration Form"
+                android:textColor="@color/dark"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backLinear">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical"
+                android:paddingBottom="30dp">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/hospnameIc"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Hospital Name"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/person">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/hospname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Email"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@android:drawable/sym_action_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/addressic"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Enter Address"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/home">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/eyeBankDistrictLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Eye Bank District"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/eyeBankDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/selectStateLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="@color/grey"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:endIconMode="dropdown_menu"
+                    app:expandedHintEnabled="false"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/grey"
+                    app:startIconDrawable="@drawable/district">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edt_back"
+                        android:dropDownHeight="wrap_content"
+                        android:dropDownSelector="@color/white"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="none"
+                        android:textColor="#A1000000"
+                        android:textColorLink="@color/blue"
+                        android:textSize="15sp"
+                        app:dropDownBackgroundTint="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+
+                    <TextView
+                        android:id="@+id/emergencyTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/lexend_semibold"
+                        android:text="CONTACT PERSON DETAILS"
+                        android:textColor="#CD000000"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/emergencyTxt"
+                        android:background="#1D000000" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emergencyNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Name"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/person">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emergencyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/countryCode2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="-8dp"
+                        android:background="@drawable/edt_back"
+                        android:clickable="false"
+                        android:drawablePadding="5dp"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/lexend_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="+91"
+                        android:textColorHint="#D9D9D9"
+                        android:textSize="12sp" />
+
+
+                    <EditText
+                        android:id="@+id/contactNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="-5dp"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:hint="Contact Number"
+                        android:inputType="phone|number"
+                        android:maxLength="10"
+                        android:paddingStart="16dp"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15sp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/pledgeConfirmation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hospital_confirm"
+                        android:paddingStart="15dp"
+                        android:fontFamily="@font/lexend_medium"
+                        android:textColor="#92039BE5"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/submitBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/btn_back"
+                    android:fontFamily="@font/lexend"
+                    android:text="Submit"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
