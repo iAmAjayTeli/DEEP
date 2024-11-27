@@ -13,6 +13,10 @@ import com.example.deep.adapter.DrawerAdapter
 import com.example.deep.databinding.NavHeaderBinding
 import com.example.deep.model.DrawerItem
 import com.example.deep.view.admin.AdminLogin
+import com.example.deep.view.admin.AdminSetting
+import com.example.deep.view.admin.ManageHospital
+import com.example.deep.view.admin.ManagePledge
+import com.example.deep.view.admin.ManageSuccessStories
 import com.example.deep.view.user.AboutUs
 import com.example.deep.view.user.EyeBankScreen
 import com.example.deep.view.user.HelpSupport
@@ -22,6 +26,7 @@ import com.example.deep.view.user.SuccessStories
 
 class
 NavigationDrawerSetup(
+    private val isAdmin:Boolean,
     private val context: Context,
     private val drawerLayout: DrawerLayout,
     private val recyclerView: RecyclerView,
@@ -45,17 +50,31 @@ NavigationDrawerSetup(
     }
 
     private fun commonDrawerItem(): List<DrawerItem> {
-        return listOf(
-            DrawerItem(R.drawable.eye_bank, "Eye Bank"),
-            DrawerItem(R.drawable.eye_pledge, "Pledge"),
-            DrawerItem(R.drawable.terms_condition, "Help & Support"),
-            DrawerItem(R.drawable.about_us, "About Us"),
-            DrawerItem(R.drawable.success, "Success Stories"),
-            DrawerItem(R.drawable.hospital, "Hospital Registration"),
-            DrawerItem(R.drawable.login, "Admin Login")
+
+        val list:List<DrawerItem>
+
+        if(!isAdmin){
+            list =listOf(
+                DrawerItem(R.drawable.eye_bank, "Eye Bank"),
+                DrawerItem(R.drawable.eye_pledge, "Pledge"),
+                DrawerItem(R.drawable.terms_condition, "Help & Support"),
+                DrawerItem(R.drawable.about_us, "About Us"),
+                DrawerItem(R.drawable.success, "Success Stories"),
+                DrawerItem(R.drawable.hospital, "Hospital Registration"),
+                DrawerItem(R.drawable.login, "Admin Login")
 
 
-        )
+            )
+        }
+        else{
+             list=listOf(
+                DrawerItem(R.drawable.eye_pledge, "Manage Pledge"),
+                DrawerItem(R.drawable.success, "Add Success Stories"),
+                DrawerItem(R.drawable.hospital, "Manage Hospital"),
+                DrawerItem(R.drawable.setting, "Setting")
+            )
+        }
+        return  list
     }
 
     private fun handleDrawerItemClick(title: String) {
@@ -88,6 +107,23 @@ NavigationDrawerSetup(
             "Admin Login"->{
                 navigateTo(AdminLogin())
             }
+
+            "Manage Pledge"->{
+                navigateTo(ManagePledge())
+            }
+
+            "Add Success Stories"->{
+                navigateTo(ManageSuccessStories())
+            }
+
+            "Manage Hospital"->{
+                navigateTo(ManageHospital())
+            }
+
+            "Setting"->{
+                navigateTo(AdminSetting())
+            }
+
         }
     }
 
