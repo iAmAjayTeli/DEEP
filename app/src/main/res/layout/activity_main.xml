@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -69,7 +68,6 @@
                                     android:scaleType="fitXY"
                                     android:src="@drawable/three_bar"
                                     app:tint="@color/blue" />
-
                             </androidx.cardview.widget.CardView>
 
 
@@ -187,21 +185,91 @@
                             app:strokeColor="@color/blue" />
 
 
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content" >
 
 
-                            <TextView
-                                android:id="@+id/textView3"
-                                android:layout_marginTop="20dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:textAlignment="center"
-                                android:fontFamily="@font/lexend"
-                                android:text="One eye donation can make two blind people see "
-                                android:textStyle="bold" />
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                app:srcCompat="@drawable/eye" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/lexend"
+                            android:text="One eye donation can make two blind people see "
+                            android:textAlignment="center"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_marginTop="25dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lexend"
+                            android:text="Why donate eyes?" />
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:fontFamily="@font/lexend"
+                            android:justificationMode="inter_word"
+                            android:text="\u2022 Corneal blindness is the third leading cause of blindness globally, after cataracts and glaucoma.\n\u2022 India has 1.2 million people with corneal blindness, with 25,000–30,000 new cases annually.\n\u2022 Only one donor cornea is available for every 70 individuals in need.\n\u2022 Corneal conditions cause 37.5% of blindness among individuals aged 0 to 49 years in India.\n\u2022 Corneal conditions are the second leading cause of blindness (7.4%) among those aged 50 and above in India.\n\u2022 Corneal transplantation is the most frequently performed transplantation worldwide, restoring vision effectively."/>
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_marginTop="25dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lexend"
+                            android:text="Meet Lorie Gordon " />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            app:cardCornerRadius="100dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content" >
+
+
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="190dp"
+                                android:layout_height="150dp"
+                                app:srcCompat="@drawable/loriegordon" />
+                        </androidx.cardview.widget.CardView>
 
 
 
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:fontFamily="@font/lexend"
+                            android:justificationMode="inter_word"
+                            android:textSize="20sp"
+                            android:layout_marginBottom="40dp"
+                            android:text="&quot;I think it's a miracle. I'm able to see again and there's no price you can put on that &quot;" />
 
 
 
