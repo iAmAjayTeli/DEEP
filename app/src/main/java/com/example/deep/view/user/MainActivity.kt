@@ -1,5 +1,6 @@
 package com.example.deep.view.user
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,6 +41,15 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             menuIcon.setOnClickListener {
                 drawerLayout.openDrawer(GravityCompat.START)
+            }
+
+            button.setOnClickListener {
+                startActivity(Intent(this@MainActivity, PledgeScreen::class.java))
+            }
+
+            button2.setOnClickListener {
+                startActivity(Intent(this@MainActivity, EyeBankScreen::class.java))
+
             }
 
 
