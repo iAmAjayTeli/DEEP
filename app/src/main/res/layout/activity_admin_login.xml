@@ -187,16 +187,10 @@
                             android:layout_weight="1"
                             android:background="#CFBCC2" />
 
-
                     </LinearLayout>
-
-
                 </LinearLayout>
             </LinearLayout>
-
-
         </ScrollView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
