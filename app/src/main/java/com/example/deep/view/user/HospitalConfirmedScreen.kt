@@ -1,5 +1,6 @@
 package com.example.deep.view.user
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -13,6 +14,7 @@ import com.example.deep.databinding.ActivityPledgeConfirmedScreenBinding
 
 class HospitalConfirmedScreen : AppCompatActivity() {
     private lateinit var binding: ActivityHospitalConfirmedScreenBinding
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
