@@ -18,8 +18,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -32,32 +31,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="#1B3F3B3B"/>
+            android:background="#1B3F3B3B"
+            android:orientation="vertical" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:src="@drawable/logo"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="70dp"/>
+                android:layout_marginTop="70dp"
+                android:src="@drawable/logo" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_gravity="bottom"
-                android:layout_alignParentBottom="true"
                 android:layout_marginBottom="100dp"
-               android:gravity="bottom|center"
+                android:gravity="bottom|center"
                 android:orientation="vertical">
 
                 <TextView
@@ -73,11 +71,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/lexend"
                     android:text="Help bring light into someone's life by donating the gift of sight."
-                    android:textColor="#A8000000"
-                    android:layout_marginTop="5dp"
                     android:textAlignment="center"
+                    android:textColor="#A8000000"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -87,15 +85,14 @@
                 android:id="@+id/next"
                 android:layout_width="50dp"
                 android:layout_height="33dp"
-                android:layout_gravity="bottom|end"
-                android:src="@drawable/arrow"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="25dp"
-                android:clickable="true"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:src="@drawable/arrow"
                 app:tint="#3949AB" />
-
 
 
         </RelativeLayout>
