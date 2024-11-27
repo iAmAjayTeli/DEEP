@@ -17,7 +17,7 @@ class HelpSupport : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-       binding=DataBindingUtil.setContentView(this, R.layout.activity_help_support)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_help_support)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -54,7 +54,7 @@ class HelpSupport : AppCompatActivity() {
             return when (position) {
                 0 -> Faq() // First tab
                 1 -> ContactUs() // Second tab
-                else-> Faq()
+                else -> Faq()
             }
         }
     }

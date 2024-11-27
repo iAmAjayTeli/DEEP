@@ -25,48 +25,53 @@ class AdminLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-       binding=DataBindingUtil.setContentView(this, R.layout.activity_admin_login)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_admin_login)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        loadingDialog=LoadingDialog(this, "Please wait.....")
+        loadingDialog = LoadingDialog(this, "Please wait.....")
 
         setupClickListener()
 
     }
 
-    private fun setupClickListener(){
+    private fun setupClickListener() {
         binding.apply {
             backButton.setOnClickListener {
                 onBackPressed()
             }
 
             login.setOnClickListener {
-                val username=userName.text.toString().trim()
-                val password=password.text.toString().trim()
+                val username = userName.text.toString().trim()
+                val password = password.text.toString().trim()
 
-                if(username.isEmpty() || password.isEmpty()){
-                    Snackbar.make(binding.root, "Enter username and password", Snackbar.LENGTH_SHORT).show()
-                }
-                else{
+                if (username.isEmpty() || password.isEmpty()) {
+                    Snackbar.make(
+                        binding.root,
+                        "Enter username and password",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                } else {
                     loadingDialog.startLoading()
                     lifecycleScope.launch(Dispatchers.Main) {
-                        val adminCredentials = withContext(Dispatchers.IO) {Admin.getAdminCredentials()}
+                        val adminCredentials =
+                            withContext(Dispatchers.IO) { Admin.getAdminCredentials() }
                         Log.e("AdminLogin", "$adminCredentials")
 
                         if (adminCredentials != null && username == adminCredentials.username && password == adminCredentials.password) {
                             loadingDialog.isDismiss()
-                            Snackbar.make(binding.root, "Login Successful", Snackbar.LENGTH_SHORT).show()
+                            Snackbar.make(binding.root, "Login Successful", Snackbar.LENGTH_SHORT)
+                                .show()
                             delay(1000)
                             startActivity(Intent(this@AdminLogin, AdminHome::class.java))
                             finish()
-                        }
-                        else{
+                        } else {
                             loadingDialog.isDismiss()
-                            Snackbar.make(binding.root, "Login Failed", Snackbar.LENGTH_SHORT).show()
+                            Snackbar.make(binding.root, "Login Failed", Snackbar.LENGTH_SHORT)
+                                .show()
                         }
                     }
                 }

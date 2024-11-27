@@ -14,21 +14,22 @@ import com.google.android.material.snackbar.Snackbar
 
 
 class ContactUs : Fragment() {
-    private lateinit var binding:FragmentContactUsBinding
+    private lateinit var binding: FragmentContactUsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        binding=DataBindingUtil.inflate(inflater,R.layout.fragment_contact_us,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_contact_us, container, false)
 
 
-       binding.customerService.setOnClickListener {
-            Snackbar.make(binding.root, "Customer Services coming soon", Snackbar.LENGTH_SHORT).show()
+        binding.customerService.setOnClickListener {
+            Snackbar.make(binding.root, "Customer Services coming soon", Snackbar.LENGTH_SHORT)
+                .show()
         }
 
-   binding.whatsapp.setOnClickListener {
+        binding.whatsapp.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://wa.me/+919033464399")
             startActivity(intent)

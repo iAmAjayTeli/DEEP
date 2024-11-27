@@ -14,7 +14,6 @@ data class Donor(
 )
 
 
-
 class DonorCrud {
 
     companion object {
@@ -66,7 +65,6 @@ class DonorCrud {
                 false
             }
         }
-
 
 
     }

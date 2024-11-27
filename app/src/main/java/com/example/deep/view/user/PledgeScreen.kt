@@ -27,6 +27,8 @@ import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 
 class PledgeScreen : AppCompatActivity() {
@@ -234,7 +236,8 @@ class PledgeScreen : AppCompatActivity() {
                             personalDetails,
                             emergencyPerson,
                             eyeBankDetails,
-                            isPledgeConfirm
+                            isPledgeConfirm,
+                            getFormattedDateTime()
                         )
 
                         saveToDataBase(pledge)
@@ -242,6 +245,12 @@ class PledgeScreen : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun getFormattedDateTime(): String {
+        val currentDateTime = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("d-M-yyyy")
+        return currentDateTime.format(formatter)
     }
 
     private fun saveToDataBase(pledge: Pledges) {

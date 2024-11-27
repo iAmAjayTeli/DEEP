@@ -24,7 +24,8 @@ class SpalshScreen : AppCompatActivity() {
 
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val sharedPreferences: SharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE)
+            val sharedPreferences: SharedPreferences =
+                getSharedPreferences("AppPrefs", MODE_PRIVATE)
             val isFirstLaunch = sharedPreferences.getBoolean("isFirstLaunch", true)
 
             if (isFirstLaunch) {

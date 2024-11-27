@@ -11,27 +11,34 @@ import com.example.deep.model.EyeBank
 class EyeBankAdapter(
     private val onDirectionClick: (EyeBank) -> Unit
 ) : RecyclerView.Adapter<EyeBankAdapter.EyeBankViewHolder>() {
-    inner class EyeBankViewHolder(val binding:ItemEyeBankBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class EyeBankViewHolder(val binding: ItemEyeBankBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
-    private  val diffUtil=object: DiffUtil.ItemCallback<EyeBank>(){
+    private val diffUtil = object : DiffUtil.ItemCallback<EyeBank>() {
         override fun areItemsTheSame(oldItem: EyeBank, newItem: EyeBank): Boolean {
-              return oldItem.name==newItem.name &&
-                      oldItem.address==newItem.address &&
-                      oldItem.distance==newItem.distance &&
-                      oldItem.latitude==newItem.latitude &&
-                      oldItem.longitude==newItem.longitude
+            return oldItem.name == newItem.name &&
+                    oldItem.address == newItem.address &&
+                    oldItem.distance == newItem.distance &&
+                    oldItem.latitude == newItem.latitude &&
+                    oldItem.longitude == newItem.longitude
         }
 
         override fun areContentsTheSame(oldItem: EyeBank, newItem: EyeBank): Boolean {
-           return  oldItem==newItem
+            return oldItem == newItem
         }
 
     }
 
-    val diff= AsyncListDiffer(this,diffUtil)
+    val diff = AsyncListDiffer(this, diffUtil)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EyeBankViewHolder {
-       return EyeBankViewHolder(ItemEyeBankBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return EyeBankViewHolder(
+            ItemEyeBankBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {
@@ -39,9 +46,7 @@ class EyeBankAdapter(
     }
 
     override fun onBindViewHolder(holder: EyeBankViewHolder, position: Int) {
-        val eyeBank=diff.currentList[position]
-
-        holder
+        val eyeBank = diff.currentList[position]
 
         holder.binding.getDirectionBtn.setOnClickListener {
             onDirectionClick(eyeBank)

@@ -35,7 +35,7 @@ object EmailSender {
                 setText(body)
             }
             Transport.send(message)
-           Log.e("EmailSend", "Email sent successfully")
+            Log.e("EmailSend", "Email sent successfully")
         } catch (e: Exception) {
             Log.e("EmailSend", "Error sending email: ${e.message}")
             e.printStackTrace()

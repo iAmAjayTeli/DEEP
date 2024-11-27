@@ -1,27 +1,31 @@
 package com.example.deep.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
-
 
 
 data class Pledges(
     val personalDetails: PersonalDetails,
     val emergencyContactDetails: EmergencyContactDetails,
     val eyeBankDetails: EyeBankDetails,
-    val pledgeConfirmation: Boolean
+    val pledgeConfirmation: Boolean,
+    val submittedDate: String,
+    val pledgeStatus: String = "Pending"
 )
 
+
 data class PersonalDetails(
-    val fullName:String,
-    val email:String,
+    val fullName: String,
+    val email: String,
     val bloodGroup: String,
-    val dateOfBirth:String,
+    val dateOfBirth: String,
     val mobileNumber: String,
     val district: String,
     val pinCode: String,
-    val age:String,
+    val age: String,
     val address: String
 
 )
@@ -54,7 +58,8 @@ class PledgeCrud {
                     "personalDetails" to pledge.personalDetails.toMap(),
                     "emergencyContactDetails" to pledge.emergencyContactDetails.toMap(),
                     "eyeBankDetails" to pledge.eyeBankDetails.toMap(),
-                    "pledgeConfirmation" to pledge.pledgeConfirmation
+                    "pledgeConfirmation" to pledge.pledgeConfirmation,
+                    "submittedDate" to pledge.submittedDate
                 )
                 pledgeRef.document(emailId).set(pledgeData).await()
                 println("Pledge successfully added")
@@ -171,8 +176,15 @@ fun DocumentSnapshot.toPledges(): Pledges? {
     }
 
     val pledgeConfirmation = getBoolean("pledgeConfirmation") ?: false
+    val submittedDate = getString("submittedDate") ?: ""
 
     return if (personalDetails != null && emergencyContactDetails != null && eyeBankDetails != null) {
-        Pledges(personalDetails, emergencyContactDetails, eyeBankDetails, pledgeConfirmation)
+        Pledges(
+            personalDetails,
+            emergencyContactDetails,
+            eyeBankDetails,
+            pledgeConfirmation,
+            submittedDate
+        )
     } else null
 }

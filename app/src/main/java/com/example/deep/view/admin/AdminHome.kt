@@ -1,5 +1,7 @@
 package com.example.deep.view.admin
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +18,7 @@ class AdminHome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding=DataBindingUtil.setContentView(this, R.layout.activity_admin_home)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_admin_home)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
@@ -28,16 +30,38 @@ class AdminHome : AppCompatActivity() {
 
     }
 
-    private fun setupClickListener(){
+    private fun setupClickListener() {
         binding.apply {
             menuIcon.setOnClickListener {
                 drawerLayout.openDrawer(GravityCompat.START)
             }
+
+            pledgeCardView.setOnClickListener {
+                navigateTo(ManagePledge())
+            }
+
+            hospitalCardView.setOnClickListener {
+                navigateTo(ManageHospital())
+            }
+
+            eyeBankCardView.setOnClickListener {
+
+            }
+
+            successStoriesCardView.setOnClickListener {
+                navigateTo(ManageSuccessStories())
+            }
+
+
         }
     }
 
     private fun setupNavigationDrawer() {
         val recyclerView = binding.drawerRecyclerview
-        NavigationDrawerSetup(true,this, binding.drawerLayout, recyclerView).setupDrawer()
+        NavigationDrawerSetup(true, this, binding.drawerLayout, recyclerView).setupDrawer()
+    }
+
+    private fun navigateTo(activity: Activity) {
+        startActivity(Intent(this, activity::class.java))
     }
 }

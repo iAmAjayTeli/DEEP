@@ -49,6 +49,7 @@ android {
     buildFeatures {
         dataBinding = true
     }
+
 }
 
 dependencies {
@@ -66,25 +67,24 @@ dependencies {
     implementation(libs.firebase.firestore)
 
     //lottie animation
-    implementation (libs.lottie)
+    implementation(libs.lottie)
 
     //email send
-    implementation (libs.android.mail)
-    implementation (libs.android.activation)
+    implementation(libs.android.mail)
+    implementation(libs.android.activation)
 
     //google maps and places
-    implementation (libs.play.services.maps)
-    implementation (libs.places)
+    implementation(libs.play.services.maps)
+    implementation(libs.places)
 
     //retrofit and gson
-    implementation (libs.retrofit)
-    implementation (libs.converter.gson)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
 
     //mapbox
 //    implementation("com.mapbox.maps:android:11.8.0")
 //    implementation ("com.mapbox.api:mapbox-geocoding:9.6.2")
-
 
 
 }

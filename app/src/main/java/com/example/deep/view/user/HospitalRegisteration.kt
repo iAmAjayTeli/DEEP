@@ -66,7 +66,6 @@ class HospitalRegisteration : AppCompatActivity() {
                 val PersonNumber = contactNum.text.toString().trim()
 
 
-
                 val isPledgeConfirm = pledgeConfirmation.isChecked
 
                 // Validation
@@ -88,7 +87,6 @@ class HospitalRegisteration : AppCompatActivity() {
                     }
 
 
-
                     address.isEmpty() -> {
                         binding.address.error = "Address is required"
                         binding.address.requestFocus()
@@ -108,8 +106,6 @@ class HospitalRegisteration : AppCompatActivity() {
                         contactNum.error = "Invalid Emergency Contact Number"
                         contactNum.requestFocus()
                     }
-
-
 
 
                     State == "Select State" -> {
@@ -167,7 +163,12 @@ class HospitalRegisteration : AppCompatActivity() {
 
                 withContext(Dispatchers.Main) {
                     loadingDialog.isDismiss()
-                    startActivity(Intent(this@HospitalRegisteration, HospitalConfirmedScreen::class.java))
+                    startActivity(
+                        Intent(
+                            this@HospitalRegisteration,
+                            HospitalConfirmedScreen::class.java
+                        )
+                    )
                     finish()
                 }
             } catch (e: Exception) {

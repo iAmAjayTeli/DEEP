@@ -21,7 +21,7 @@ class OnBoarding : AppCompatActivity() {
             insets
         }
 
-        val next=findViewById<ImageView>(R.id.next)
+        val next = findViewById<ImageView>(R.id.next)
 
         val sharedPreferences: SharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()

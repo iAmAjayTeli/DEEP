@@ -165,11 +165,6 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
-
-
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/selectStateLayout"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
@@ -202,10 +197,6 @@
                         app:dropDownBackgroundTint="@color/white" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
 
 
                 <RelativeLayout
@@ -306,32 +297,23 @@
                 </LinearLayout>
 
 
-
-
-
-
-
-
-
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="15sp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <CheckBox
                         android:id="@+id/pledgeConfirmation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/hospital_confirm"
-                        android:paddingStart="15dp"
                         android:fontFamily="@font/lexend_medium"
+                        android:paddingStart="15dp"
+                        android:text="@string/hospital_confirm"
                         android:textColor="#92039BE5"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 

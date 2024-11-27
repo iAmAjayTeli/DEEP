@@ -26,7 +26,7 @@ import com.example.deep.view.user.SuccessStories
 
 class
 NavigationDrawerSetup(
-    private val isAdmin:Boolean,
+    private val isAdmin: Boolean,
     private val context: Context,
     private val drawerLayout: DrawerLayout,
     private val recyclerView: RecyclerView,
@@ -51,10 +51,10 @@ NavigationDrawerSetup(
 
     private fun commonDrawerItem(): List<DrawerItem> {
 
-        val list:List<DrawerItem>
+        val list: List<DrawerItem>
 
-        if(!isAdmin){
-            list =listOf(
+        if (!isAdmin) {
+            list = listOf(
                 DrawerItem(R.drawable.eye_bank, "Eye Bank"),
                 DrawerItem(R.drawable.eye_pledge, "Pledge"),
                 DrawerItem(R.drawable.terms_condition, "Help & Support"),
@@ -65,16 +65,15 @@ NavigationDrawerSetup(
 
 
             )
-        }
-        else{
-             list=listOf(
+        } else {
+            list = listOf(
                 DrawerItem(R.drawable.eye_pledge, "Manage Pledge"),
                 DrawerItem(R.drawable.success, "Add Success Stories"),
                 DrawerItem(R.drawable.hospital, "Manage Hospital"),
                 DrawerItem(R.drawable.setting, "Setting")
             )
         }
-        return  list
+        return list
     }
 
     private fun handleDrawerItemClick(title: String) {
@@ -88,39 +87,39 @@ NavigationDrawerSetup(
                 navigateTo(PledgeScreen())
             }
 
-            "Help & Support"->{
-               navigateTo(HelpSupport())
+            "Help & Support" -> {
+                navigateTo(HelpSupport())
             }
 
             "About Us" -> {
-               navigateTo(AboutUs())
+                navigateTo(AboutUs())
             }
 
-            "Success Stories"->{
+            "Success Stories" -> {
                 navigateTo(SuccessStories())
             }
 
-            "Hospital Registration"->{
+            "Hospital Registration" -> {
                 navigateTo(HospitalRegisteration())
             }
 
-            "Admin Login"->{
+            "Admin Login" -> {
                 navigateTo(AdminLogin())
             }
 
-            "Manage Pledge"->{
+            "Manage Pledge" -> {
                 navigateTo(ManagePledge())
             }
 
-            "Add Success Stories"->{
+            "Add Success Stories" -> {
                 navigateTo(ManageSuccessStories())
             }
 
-            "Manage Hospital"->{
+            "Manage Hospital" -> {
                 navigateTo(ManageHospital())
             }
 
-            "Setting"->{
+            "Setting" -> {
                 navigateTo(AdminSetting())
             }
 

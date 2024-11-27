@@ -26,17 +26,17 @@ class Faq : Fragment() {
         val faqs = listOf(
             requireContext().getString(R.string.faq_q1) to requireContext().getString(R.string.faq_a1),
             requireContext().getString(R.string.faq_q2) to requireContext().getString(R.string.faq_a2),
-            requireContext().getString(R.string.faq_q3) to  requireContext().getString(R.string.faq_a3),
-            requireContext().getString(R.string.faq_q4) to  requireContext().getString(R.string.faq_a4),
-            requireContext().getString(R.string.faq_q5) to  requireContext().getString(R.string.faq_a5),
-            requireContext().getString(R.string.faq_q6) to  requireContext().getString(R.string.faq_a6),
-            requireContext().getString(R.string.faq_q7) to  requireContext().getString(R.string.faq_a7),
-            requireContext().getString(R.string.faq_q8) to  requireContext().getString(R.string.faq_a8),
-            requireContext().getString(R.string.faq_q9) to  requireContext().getString(R.string.faq_a9)
+            requireContext().getString(R.string.faq_q3) to requireContext().getString(R.string.faq_a3),
+            requireContext().getString(R.string.faq_q4) to requireContext().getString(R.string.faq_a4),
+            requireContext().getString(R.string.faq_q5) to requireContext().getString(R.string.faq_a5),
+            requireContext().getString(R.string.faq_q6) to requireContext().getString(R.string.faq_a6),
+            requireContext().getString(R.string.faq_q7) to requireContext().getString(R.string.faq_a7),
+            requireContext().getString(R.string.faq_q8) to requireContext().getString(R.string.faq_a8),
+            requireContext().getString(R.string.faq_q9) to requireContext().getString(R.string.faq_a9)
         )
 
         val recyclerView = binding.recyclerViewFAQ
-        recyclerView.layoutManager=LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = FAQAdapter(faqs)
 
         return binding.root

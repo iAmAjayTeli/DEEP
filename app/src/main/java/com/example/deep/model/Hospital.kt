@@ -68,10 +68,5 @@ class HospitalCrud {
         }
 
 
-
-
-
-
-
     }
 }
