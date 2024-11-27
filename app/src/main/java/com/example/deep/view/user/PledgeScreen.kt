@@ -21,7 +21,6 @@ import com.example.deep.model.EyeBankDetails
 import com.example.deep.model.PersonalDetails
 import com.example.deep.model.PledgeCrud
 import com.example.deep.model.Pledges
-import com.example.deep.util.EmailSender
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout

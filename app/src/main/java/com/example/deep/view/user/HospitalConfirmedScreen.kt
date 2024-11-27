@@ -10,7 +10,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.example.deep.R
 import com.example.deep.databinding.ActivityHospitalConfirmedScreenBinding
-import com.example.deep.databinding.ActivityPledgeConfirmedScreenBinding
 
 class HospitalConfirmedScreen : AppCompatActivity() {
     private lateinit var binding: ActivityHospitalConfirmedScreenBinding

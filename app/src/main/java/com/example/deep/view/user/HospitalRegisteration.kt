@@ -14,7 +14,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.example.deep.R
 import com.example.deep.databinding.ActivityHospitalRegisterationBinding
-import com.example.deep.databinding.ActivityPledgeBinding
 import com.example.deep.handler.LoadingDialog
 import com.example.deep.model.Hospital
 import com.example.deep.model.HospitalCrud
