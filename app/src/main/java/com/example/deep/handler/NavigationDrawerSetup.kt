@@ -49,6 +49,7 @@ NavigationDrawerSetup(
             DrawerItem(R.drawable.terms_condition, "Help & Support"),
             DrawerItem(R.drawable.about_us, "About Us"),
             DrawerItem(R.drawable.success, "Success Stories"),
+            DrawerItem(R.drawable.hospital, "Hospital Registration"),
             DrawerItem(R.drawable.login, "Admin Login")
 
 
@@ -75,6 +76,10 @@ NavigationDrawerSetup(
             }
 
             "Success Stories"->{
+                navigateTo(SuccessStories())
+            }
+
+            "Hospital Registration"->{
                 navigateTo(SuccessStories())
             }
 
