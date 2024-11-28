@@ -1,12 +1,15 @@
 package com.example.deep.model
 
 import android.os.Parcel
-import android.os.Parcelable
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Pledges(
     val personalDetails: PersonalDetails,
     val emergencyContactDetails: EmergencyContactDetails,
@@ -14,9 +17,9 @@ data class Pledges(
     val pledgeConfirmation: Boolean,
     val submittedDate: String,
     val pledgeStatus: String = "Pending"
-)
+) : Parcelable
 
-
+@Parcelize
 data class PersonalDetails(
     val fullName: String,
     val email: String,
@@ -27,22 +30,23 @@ data class PersonalDetails(
     val pinCode: String,
     val age: String,
     val address: String
+) : Parcelable
 
-)
-
+@Parcelize
 data class EmergencyContactDetails(
     val emergencyContactName: String,
     val emergencyContactNumber: String,
     val emergencyAddress: String
+) : Parcelable
 
-)
 
+@Parcelize
 data class EyeBankDetails(
     val eyeBankState: String,
     val eyeBankName: String,
     val eyeBankContact: String,
     val eyeBankDistrict: String
-)
+) : Parcelable
 
 
 class PledgeCrud {
@@ -55,11 +59,12 @@ class PledgeCrud {
             try {
                 val emailId = pledge.personalDetails.email // Get email from PersonalDetails
                 val pledgeData = mapOf(
-                    "personalDetails" to pledge.personalDetails.toMap(),
+                    "personalDetails" to (pledge.personalDetails.toMap() ?: ""),
                     "emergencyContactDetails" to pledge.emergencyContactDetails.toMap(),
                     "eyeBankDetails" to pledge.eyeBankDetails.toMap(),
                     "pledgeConfirmation" to pledge.pledgeConfirmation,
-                    "submittedDate" to pledge.submittedDate
+                    "submittedDate" to pledge.submittedDate,
+                    "pledgeStatus" to pledge.pledgeStatus
                 )
                 pledgeRef.document(emailId).set(pledgeData).await()
                 println("Pledge successfully added")
@@ -77,6 +82,18 @@ class PledgeCrud {
                 }
             } catch (e: Exception) {
                 println("Error retrieving pledges: ${e.message}")
+                emptyList()
+            }
+        }
+
+        suspend fun getPledgeByStatus(status: String): List<Pledges> {
+            return try {
+                val querySnapshot = pledgeRef.whereEqualTo("pledgeStatus", status).get().await()
+                querySnapshot.documents.mapNotNull { doc ->
+                    doc.toPledges()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
                 emptyList()
             }
         }
@@ -111,7 +128,7 @@ class PledgeCrud {
 }
 
 // Extensions to Map Data Classes
-fun PersonalDetails.toMap(): Map<String, String> {
+fun PersonalDetails.toMap(): Map<String, String?> {
     return mapOf(
         "fullName" to fullName,
         "email" to email,
@@ -125,7 +142,7 @@ fun PersonalDetails.toMap(): Map<String, String> {
     )
 }
 
-fun EmergencyContactDetails.toMap(): Map<String, String> {
+fun EmergencyContactDetails.toMap(): Map<String, String?> {
     return mapOf(
         "emergencyContactName" to emergencyContactName,
         "emergencyContactNumber" to emergencyContactNumber,
@@ -133,7 +150,7 @@ fun EmergencyContactDetails.toMap(): Map<String, String> {
     )
 }
 
-fun EyeBankDetails.toMap(): Map<String, String> {
+fun EyeBankDetails.toMap(): Map<String, String?> {
     return mapOf(
         "eyeBankState" to eyeBankState,
         "eyeBankName" to eyeBankName,

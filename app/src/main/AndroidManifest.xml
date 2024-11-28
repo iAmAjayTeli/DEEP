@@ -31,11 +31,7 @@
         <activity
             android:name=".view.admin.ManagePledge"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".view.user.HospitalRegisteration"
@@ -71,7 +67,15 @@
             android:exported="false" />
         <activity
             android:name=".view.user.SpalshScreen"
-            android:exported="true"></activity>
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".view.user.MainActivity"
             android:exported="true" />

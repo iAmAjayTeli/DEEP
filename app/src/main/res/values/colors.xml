@@ -13,5 +13,6 @@
     <color name="edttextBg">#E2E2E3</color>
     <color name="darkgren">#53B175</color>
     <color name="action_color">#EBEBEB</color>
+    <color name="line_color">#F3F5FA</color>
 
 </resources>

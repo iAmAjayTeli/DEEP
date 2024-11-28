@@ -258,19 +258,6 @@
                             android:gravity="center_horizontal"
                             android:orientation="horizontal">
 
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/eyeBankCardView"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_columnWeight="1"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="20dp"
-                                android:layout_weight="1"
-                                android:backgroundTint="@color/cardColor"
-                                android:elevation="5dp"
-                                app:cardCornerRadius="15dp">
-
-                            </androidx.cardview.widget.CardView>
 
                             <androidx.cardview.widget.CardView
                                 android:id="@+id/successStoriesCardView"
@@ -309,145 +296,6 @@
                                         android:layout_marginEnd="5dp"
                                         android:layout_marginBottom="5dp"
                                         android:src="@drawable/success" />
-
-                                </LinearLayout>
-
-                            </androidx.cardview.widget.CardView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal">
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/androidDevCardView"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_columnWeight="1"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="20dp"
-                                android:layout_weight="1"
-                                android:backgroundTint="@color/cardColor"
-                                android:elevation="5dp"
-                                app:cardCornerRadius="15dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center_vertical|center_horizontal"
-                                    android:orientation="vertical"
-                                    android:padding="3dp">
-
-                                    <TextView
-                                        android:id="@+id/androidDevText"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="5dp"
-                                        android:layout_marginTop="4dp"
-                                        android:layout_marginEnd="5dp"
-                                        android:fontFamily="@font/lexend_semibold"
-                                        android:text="Android Dev"
-                                        android:textSize="15sp" />
-
-                                    <ImageView
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginStart="5dp"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginEnd="5dp"
-                                        android:layout_marginBottom="5dp" />
-
-                                </LinearLayout>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/webDevelopmentCardView"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="20dp"
-                                android:layout_weight="1"
-                                android:backgroundTint="@color/cardColor"
-                                android:elevation="5dp"
-                                app:cardCornerRadius="15dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical|center_horizontal"
-                                    android:orientation="vertical"
-                                    android:padding="3dp">
-
-                                    <TextView
-                                        android:id="@+id/webDevelopmentText"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="5dp"
-                                        android:layout_marginTop="4dp"
-                                        android:layout_marginEnd="5dp"
-                                        android:fontFamily="@font/lexend_semibold"
-                                        android:text="Web Development"
-                                        android:textSize="15sp" />
-
-                                    <ImageView
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginStart="5dp"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginEnd="5dp"
-                                        android:layout_marginBottom="5dp" />
-
-                                </LinearLayout>
-
-                            </androidx.cardview.widget.CardView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal">
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/networkingCardView"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_columnWeight="1"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="20dp"
-                                android:layout_weight="1"
-                                android:backgroundTint="@color/cardColor"
-                                android:elevation="5dp"
-                                app:cardCornerRadius="15dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center_vertical|center_horizontal"
-                                    android:orientation="vertical"
-                                    android:padding="3dp">
-
-                                    <TextView
-                                        android:id="@+id/networkingText"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="5dp"
-                                        android:layout_marginTop="4dp"
-                                        android:layout_marginEnd="5dp"
-                                        android:fontFamily="@font/lexend_semibold"
-                                        android:text="Networking(CN)"
-                                        android:textSize="15sp" />
-
-                                    <ImageView
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        android:layout_marginStart="5dp"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginEnd="5dp"
-                                        android:layout_marginBottom="5dp" />
 
                                 </LinearLayout>
 
@@ -494,37 +342,6 @@
                                 </LinearLayout>
 
                             </androidx.cardview.widget.CardView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_row="0"
-                            android:layout_column="3"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:orientation="vertical"
-                            android:padding="3dp">
-
-                            <TextView
-                                android:id="@+id/eyeBank"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="4dp"
-                                android:layout_marginEnd="5dp"
-                                android:fontFamily="@font/lexend_semibold"
-                                android:text="Eye Bank"
-                                android:textSize="15sp" />
-
-                            <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:src="@drawable/eye_bank" />
-
                         </LinearLayout>
 
 

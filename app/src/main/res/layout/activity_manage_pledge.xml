@@ -94,16 +94,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/backLinear" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/pledgeRecyclerview"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/attendance_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backLinear"
+            app:tabGravity="fill"
+            app:tabIndicator="@drawable/leave_tab_indicator_bg"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabIndicatorColor="@null"
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorGravity="stretch"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed"
+            app:tabRippleColor="@null"
+            app:tabSelectedTextColor="@color/white" />
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="15dp"
-            android:padding="5dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchBar" />
+            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

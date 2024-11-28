@@ -44,10 +44,6 @@ class AdminHome : AppCompatActivity() {
                 navigateTo(ManageHospital())
             }
 
-            eyeBankCardView.setOnClickListener {
-
-            }
-
             successStoriesCardView.setOnClickListener {
                 navigateTo(ManageSuccessStories())
             }
