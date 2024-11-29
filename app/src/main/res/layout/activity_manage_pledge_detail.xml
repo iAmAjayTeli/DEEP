@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="pledgeDetails"
+            type="com.example.deep.model.Pledges" />
+
+    </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -9,7 +17,779 @@
         android:layout_height="match_parent"
         tools:context=".view.admin.ManagePledgeDetail">
 
+        <LinearLayout
+            android:id="@+id/backLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/card_background"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/back"
+                android:padding="5dp"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/screenTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexend_semibold"
+                android:text="@{pledgeDetails.personalDetails.fullName}"
+                android:textColor="@color/dark"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backLinear">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical"
+                android:paddingBottom="30dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
 
 
+                    <TextView
+                        android:id="@+id/personalDetailsTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/lexend_semibold"
+                        android:text="PERSONAL DETAILS"
+                        android:textColor="#CD000000"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/personalDetailsTxt"
+                        android:background="#1D000000" />
+
+                </RelativeLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fullNameIc"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Full Name"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    android:clickable="false"
+                    android:focusableInTouchMode="false"
+                    android:focusable="false"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/person">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:clickable="false"
+                        android:focusableInTouchMode="false"
+                        android:focusable="false"
+                        android:text="@{pledgeDetails.personalDetails.fullName}"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Email"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    android:clickable="false"
+                    android:focusableInTouchMode="false"
+                    android:focusable="false"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@android:drawable/sym_action_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="50dp"
+                        android:text="@{pledgeDetails.personalDetails.email}"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/bloodGroupLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:minHeight="48dp"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="@color/grey"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:endIconMode="dropdown_menu"
+                    app:expandedHintEnabled="false"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/grey"
+                    app:startIconDrawable="@drawable/blood_group">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/bloodGroupsTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edt_back"
+                        android:dropDownHeight="wrap_content"
+                        android:dropDownSelector="@color/white"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="none"
+                        android:minHeight="48dp"
+                        android:textColor="#A1000000"
+                        android:textColorLink="@color/blue"
+                        android:textSize="15sp"
+                        android:clickable="false"
+                        android:text="@{pledgeDetails.personalDetails.bloodGroup}"
+                        app:dropDownBackgroundTint="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dobLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="Date of Birth"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/baseline_calendar_month_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:text="@{pledgeDetails.personalDetails.dateOfBirth}"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/lexend_medium"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/phoneNumberLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/countryCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="-8dp"
+                        android:background="@drawable/edt_back"
+                        android:clickable="false"
+                        android:drawablePadding="5dp"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/lexend_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="+91"
+                        android:textColorHint="#D9D9D9"
+                        android:textSize="12sp" />
+
+
+                    <EditText
+                        android:id="@+id/phoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="-5dp"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:hint="Mobile Number"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.personalDetails.mobileNumber}"
+                        android:inputType="phone|number"
+                        android:maxLength="10"
+                        android:paddingStart="16dp"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/districtLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="District"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/district">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.personalDetails.district}"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pincodeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Pincode"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pincode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.personalDetails.pinCode}"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ageLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Age"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.personalDetails.age}"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/addressLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Address"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.personalDetails.address}"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+
+                    <TextView
+                        android:id="@+id/emergencyTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/lexend_semibold"
+                        android:text="EMERGENCY CONTACTS"
+                        android:textColor="#CD000000"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/emergencyTxt"
+                        android:background="#1D000000" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emergencyNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Name"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/person">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emergencyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:paddingStart="50dp"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.emergencyContactDetails.emergencyContactName}"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/countryCode2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="-8dp"
+                        android:background="@drawable/edt_back"
+                        android:clickable="false"
+                        android:drawablePadding="5dp"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/lexend_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="+91"
+                        android:textColorHint="#D9D9D9"
+                        android:textSize="12sp" />
+
+
+                    <EditText
+                        android:id="@+id/contactNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="-5dp"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:hint="Contact Number"
+                        android:inputType="phone|number"
+                        android:maxLength="10"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.emergencyContactDetails.emergencyContactNumber}"
+                        android:paddingStart="16dp"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emergencyAddressLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Address"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emergencyAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.emergencyContactDetails.emergencyAddress}"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+
+                    <TextView
+                        android:id="@+id/eyeBankDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/lexend_semibold"
+                        android:text="EYE BANK DETAILS"
+                        android:textColor="#CD000000"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/eyeBankDetails"
+                        android:background="#1D000000" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nearestEyeBank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_marginBottom="15dp">
+
+                    <ImageView
+                        android:id="@+id/focus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/search"
+                        app:tint="@color/blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/focus"
+                        android:fontFamily="@font/lexend_medium"
+                        android:text="Find nearest eye bank"
+                        android:textColor="@color/blue"
+                        android:textSize="13sp" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/selectStateLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="@color/grey"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:endIconMode="dropdown_menu"
+                    app:expandedHintEnabled="false"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/grey"
+                    app:startIconDrawable="@drawable/district">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edt_back"
+                        android:dropDownHeight="wrap_content"
+                        android:dropDownSelector="@color/white"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="none"
+                        android:textColor="#A1000000"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.eyeBankDetails.eyeBankState}"
+                        android:textColorLink="@color/blue"
+                        android:textSize="15sp"
+                        app:dropDownBackgroundTint="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/eyeBankDistrictLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Eye Bank District"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/eyeBankDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.eyeBankDetails.eyeBankDistrict}"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/eyeBankNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="15dp"
+                    android:hint="Eye Bank Name"
+                    android:textColorHint="@color/grey"
+                    android:textCursorDrawable="@color/blue"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/eyeBankName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.eyeBankDetails.eyeBankName}"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/countryCode3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="-8dp"
+                        android:background="@drawable/edt_back"
+                        android:clickable="false"
+                        android:drawablePadding="5dp"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/lexend_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="+91"
+                        android:textColorHint="#D9D9D9"
+                        android:textSize="12sp" />
+
+
+                    <EditText
+                        android:id="@+id/eyeContactNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="-5dp"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:hint="Contact Number"
+                        android:inputType="phone|number"
+                        android:maxLength="10"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{pledgeDetails.eyeBankDetails.eyeBankContact}"
+                        android:paddingStart="16dp"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/pledgeConfirmation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lexend_medium"
+                        android:paddingStart="15dp"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:checked="@{pledgeDetails.pledgeConfirmation}"
+                        android:text="@string/pledge_confirm"
+                        android:textColor="#92039BE5"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:gravity="center_vertical"
+                    >
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/deleteBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_back"
+                        android:fontFamily="@font/lexend"
+                        android:text="Delete"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        app:icon="@drawable/close"
+                        android:layout_marginEnd="8dp"
+                        app:backgroundTint="@color/quantum_googred"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/completedBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_back"
+                        android:fontFamily="@font/lexend"
+                        android:text="Completed"
+                        app:icon="@drawable/checked"
+                        app:backgroundTint="@color/quantum_googgreen"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

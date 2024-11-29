@@ -237,7 +237,8 @@ class PledgeScreen : AppCompatActivity() {
                             emergencyPerson,
                             eyeBankDetails,
                             isPledgeConfirm,
-                            getFormattedDateTime()
+                            getFormattedDateTime(),
+                            "Pending"
                         )
 
                         saveToDataBase(pledge)

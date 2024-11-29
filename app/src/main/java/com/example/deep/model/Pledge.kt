@@ -16,7 +16,7 @@ data class Pledges(
     val eyeBankDetails: EyeBankDetails,
     val pledgeConfirmation: Boolean,
     val submittedDate: String,
-    val pledgeStatus: String = "Pending"
+    val pledgeStatus: String
 ) : Parcelable
 
 @Parcelize
@@ -124,6 +124,24 @@ class PledgeCrud {
                 false
             }
         }
+
+        suspend fun deletePledge(emailId: String) {
+            try {
+                pledgeRef.document(emailId).delete().await()
+                println("Pledge successfully deleted")
+            } catch (e: Exception) {
+                println("Error deleting pledge: ${e.message}")
+        }
+            }
+
+            suspend fun updatePledgeStatus(emailId: String, newStatus: String) {
+                try {
+                    pledgeRef.document(emailId).update("pledgeStatus", newStatus).await()
+                    println("Pledge status updated successfully")
+                } catch (e: Exception) {
+                    println("Error updating pledge status: ${e.message}")
+                }
+            }
     }
 }
 
@@ -194,6 +212,7 @@ fun DocumentSnapshot.toPledges(): Pledges? {
 
     val pledgeConfirmation = getBoolean("pledgeConfirmation") ?: false
     val submittedDate = getString("submittedDate") ?: ""
+    val pledgeStatus=getString("pledgeStatus") ?: "Pending"
 
     return if (personalDetails != null && emergencyContactDetails != null && eyeBankDetails != null) {
         Pledges(
@@ -201,7 +220,8 @@ fun DocumentSnapshot.toPledges(): Pledges? {
             emergencyContactDetails,
             eyeBankDetails,
             pledgeConfirmation,
-            submittedDate
+            submittedDate,
+            pledgeStatus
         )
     } else null
 }
