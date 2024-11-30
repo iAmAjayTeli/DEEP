@@ -38,7 +38,7 @@ class ManagePledge : AppCompatActivity() {
 
     }
 
-    private fun setupViewpager(){
+    private fun setupViewpager() {
         val tabLayout = binding.tabLayout
         val viewPager = binding.viewPager2
 
@@ -55,63 +55,14 @@ class ManagePledge : AppCompatActivity() {
         }.attach()
 
     }
+
     private fun setupClickListener() {
         binding.apply {
             backBtn.setOnClickListener {
                 finish()
             }
-
-
-//            search.setOnClickListener {
-//                if (searchView.visibility == View.GONE) {
-//                    searchView.visibility = View.VISIBLE
-//                    searchView.requestFocus()
-//                    setUpSearchView()
-//
-//                    val inputMethodManager =
-//                        binding.root.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                    inputMethodManager.showSoftInput(searchView, InputMethodManager.SHOW_FORCED)
-//                } else {
-//                    searchView.visibility = View.GONE
-//                    search.visibility = View.VISIBLE
-//
-//                    val inputMethodManager =
-//                        binding.root.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                    inputMethodManager.hideSoftInputFromWindow(searchView.windowToken, 0)
-//                }
-//            }
-
         }
     }
-
-
-//    private fun setUpSearchView() {
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                filterCategories(query.orEmpty())
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                filterCategories(newText.orEmpty())
-//                return true
-//            }
-//        })
-//    }
-
-//    private fun filterCategories(query: String) {
-//        val lowerCaseQuery = query.lowercase()
-//
-//        for (i in cardViewList.indices) {
-//            val categoryText = categoryTextList[i].text.toString().lowercase()
-//
-//            if (categoryText.contains(lowerCaseQuery)) {
-//                cardViewList[i].visibility = View.VISIBLE
-//            } else {
-//                cardViewList[i].visibility = View.GONE
-//            }
-//        }
-//    }
 
 
     // Pager Adapter for ViewPager2

@@ -67,7 +67,7 @@ class PendingPledge : Fragment() {
                 adapter.diff.submitList(pledgeList)
             } else {
                 loading.visibility = View.GONE
-                binding.noPledgeCardView.visibility=View.VISIBLE
+                binding.noPledgeCardView.visibility = View.VISIBLE
             }
 
         }

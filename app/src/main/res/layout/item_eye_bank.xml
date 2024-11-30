@@ -12,14 +12,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_marginBottom="15dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp">
 
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-          android:layout_marginStart="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:elevation="4dp"
             app:cardCornerRadius="10dp"
@@ -48,12 +48,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
                         android:background="@drawable/edt_back"
                         android:backgroundTint="#FFB300"
                         android:fontFamily="@font/lexend"
                         android:padding="2dp"
-                      android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
                         android:text="@{eyeBankDetails.distance}"
                         android:textColor="@color/white"
                         android:textSize="11sp" />
@@ -92,8 +92,8 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="1dp"
                         android:fontFamily="@font/lexend"
-                        android:textColor="@color/black"
                         android:text="@{eyeBankDetails.address}"
+                        android:textColor="@color/black"
                         android:textSize="11sp" />
 
 
@@ -104,15 +104,15 @@
                     android:id="@+id/getDirectionBtn"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:layout_marginTop="10dp"
-                  android:layout_weight="1"
                     android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/edt_back"
                     android:backgroundTint="@color/darkgren"
                     android:text="Get Directions"
                     android:textAllCaps="false"
-                    android:layout_marginBottom="5dp"
                     android:textColor="@color/white" />
 
 

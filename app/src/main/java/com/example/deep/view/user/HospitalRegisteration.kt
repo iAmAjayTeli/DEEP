@@ -2,6 +2,7 @@ package com.example.deep.view.user
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.EditText
@@ -64,9 +65,8 @@ class HospitalRegisteration : AppCompatActivity() {
                 val State = selectState.text.toString().trim()
                 val PersonName = emergencyName.text.toString().trim()
                 val PersonNumber = contactNum.text.toString().trim()
+                val isDetailsCorrect = isCorrect.isChecked
 
-
-                val isPledgeConfirm = pledgeConfirmation.isChecked
 
                 // Validation
                 when {
@@ -130,8 +130,8 @@ class HospitalRegisteration : AppCompatActivity() {
                             District,
                             State,
                             PersonName,
-                            PersonNumber
-
+                            PersonNumber,
+                            isDetailsCorrect
                         )
 
 
@@ -173,6 +173,14 @@ class HospitalRegisteration : AppCompatActivity() {
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
+                withContext(Dispatchers.Main) {
+                    Snackbar.make(
+                        binding.root,
+                        "Failed to register hospital: ${e.message}",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                    Log.e("HospitalRegistration", "${e.message}")
+                }
             }
         }
     }

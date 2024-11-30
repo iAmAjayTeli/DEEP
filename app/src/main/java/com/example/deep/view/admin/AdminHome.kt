@@ -45,7 +45,7 @@ class AdminHome : AppCompatActivity() {
             }
 
             successStoriesCardView.setOnClickListener {
-                navigateTo(ManageSuccessStories())
+                navigateTo(AddSuccessStories())
             }
 
 

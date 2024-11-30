@@ -60,39 +60,12 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/search"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/search"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </LinearLayout>
         </LinearLayout>
 
-        <SearchView
-            android:id="@+id/searchBar"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="-12dp"
-            android:layout_marginEnd="23dp"
-            android:layout_weight="1"
-            android:background="@drawable/loading_bar_back"
-            android:elevation="10dp"
-            android:iconifiedByDefault="false"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:queryBackground="@android:color/transparent"
-            android:queryHint="Search Person"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/backLinear" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
@@ -126,8 +99,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tabLayout" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

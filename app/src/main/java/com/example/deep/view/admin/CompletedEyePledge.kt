@@ -3,11 +3,11 @@ package com.example.deep.view.admin
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +31,12 @@ class CompletedEyePledge : Fragment() {
     ): View? {
 
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_completed_eye_pledge, container, false)
+            DataBindingUtil.inflate(
+                inflater,
+                R.layout.fragment_completed_eye_pledge,
+                container,
+                false
+            )
 
         loading = binding.loading
         loading.visibility = View.VISIBLE
@@ -60,7 +65,8 @@ class CompletedEyePledge : Fragment() {
 
     private fun getPledgeList() {
         lifecycleScope.launch(Dispatchers.Main) {
-            val pledgeList = withContext(Dispatchers.IO) { PledgeCrud.getPledgeByStatus("Completed") }
+            val pledgeList =
+                withContext(Dispatchers.IO) { PledgeCrud.getPledgeByStatus("Completed") }
             Log.e("ManagePledge", "setupRecyclerview: $pledgeList")
 
             if (pledgeList.isNotEmpty()) {

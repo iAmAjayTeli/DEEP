@@ -48,7 +48,7 @@ class EyeBankAdapter(
     override fun onBindViewHolder(holder: EyeBankViewHolder, position: Int) {
         val eyeBank = diff.currentList[position]
 
-        holder.binding.eyeBankDetails=eyeBank
+        holder.binding.eyeBankDetails = eyeBank
 
         holder.binding.getDirectionBtn.setOnClickListener {
             onDirectionClick(eyeBank)

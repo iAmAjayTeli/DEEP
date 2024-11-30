@@ -1,12 +1,10 @@
 package com.example.deep.model
 
-import android.os.Parcel
+
+import android.os.Parcelable
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
-
-
-import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -131,17 +129,17 @@ class PledgeCrud {
                 println("Pledge successfully deleted")
             } catch (e: Exception) {
                 println("Error deleting pledge: ${e.message}")
+            }
         }
-            }
 
-            suspend fun updatePledgeStatus(emailId: String, newStatus: String) {
-                try {
-                    pledgeRef.document(emailId).update("pledgeStatus", newStatus).await()
-                    println("Pledge status updated successfully")
-                } catch (e: Exception) {
-                    println("Error updating pledge status: ${e.message}")
-                }
+        suspend fun updatePledgeStatus(emailId: String, newStatus: String) {
+            try {
+                pledgeRef.document(emailId).update("pledgeStatus", newStatus).await()
+                println("Pledge status updated successfully")
+            } catch (e: Exception) {
+                println("Error updating pledge status: ${e.message}")
             }
+        }
     }
 }
 
@@ -212,7 +210,7 @@ fun DocumentSnapshot.toPledges(): Pledges? {
 
     val pledgeConfirmation = getBoolean("pledgeConfirmation") ?: false
     val submittedDate = getString("submittedDate") ?: ""
-    val pledgeStatus=getString("pledgeStatus") ?: "Pending"
+    val pledgeStatus = getString("pledgeStatus") ?: "Pending"
 
     return if (personalDetails != null && emergencyContactDetails != null && eyeBankDetails != null) {
         Pledges(

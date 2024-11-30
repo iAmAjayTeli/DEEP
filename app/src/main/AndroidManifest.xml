@@ -17,28 +17,37 @@
         android:theme="@style/Theme.DEEP"
         tools:targetApi="31">
         <activity
+            android:name=".view.admin.ManageAddedStory"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.ManageHospitalDetail"
+            android:exported="false" />
+        <activity
             android:name=".view.admin.ManagePledgeDetail"
             android:exported="false" />
         <activity
             android:name=".view.admin.AdminSetting"
             android:exported="false" />
         <activity
-            android:name=".view.admin.ManageSuccessStories"
-            android:exported="false" />
+            android:name=".view.admin.AddSuccessStories"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.admin.ManageHospital"
             android:exported="false" />
         <activity
             android:name=".view.admin.ManagePledge"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
+        <activity
+            android:name=".view.user.HospitalConfirmedScreen"
+            android:exported="false" />
         <activity
             android:name=".view.user.HospitalRegisteration"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.admin.AdminHome"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".view.admin.AdminLogin"
             android:exported="false"
@@ -50,7 +59,7 @@
             android:name=".view.user.AboutUs"
             android:exported="false" />
         <activity
-            android:name=".view.user.SuccessStories"
+            android:name=".view.user.SuccessStoriesScreen"
             android:exported="false" />
         <activity
             android:name=".view.user.HelpSupport"
@@ -68,13 +77,11 @@
         <activity
             android:name=".view.user.SpalshScreen"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".view.user.MainActivity"

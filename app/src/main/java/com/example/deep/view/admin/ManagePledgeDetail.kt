@@ -9,7 +9,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.example.deep.R
-import com.example.deep.databinding.ActivityManagePledgeBinding
 import com.example.deep.databinding.ActivityManagePledgeDetailBinding
 import com.example.deep.model.PledgeCrud
 import com.example.deep.model.Pledges
@@ -20,12 +19,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ManagePledgeDetail : AppCompatActivity() {
-    private lateinit var binding:ActivityManagePledgeDetailBinding
-    private lateinit var pledge:Pledges
+    private lateinit var binding: ActivityManagePledgeDetailBinding
+    private lateinit var pledge: Pledges
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding=DataBindingUtil.setContentView(this, R.layout.activity_manage_pledge_detail)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_manage_pledge_detail)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -33,22 +32,22 @@ class ManagePledgeDetail : AppCompatActivity() {
         }
 
 
-       pledge= intent.getParcelableExtra<Pledges>("pledgeList")!!
-        binding.pledgeDetails=pledge
+        pledge = intent.getParcelableExtra<Pledges>("pledgeList")!!
+        binding.pledgeDetails = pledge
 
         clickListener()
     }
 
-    private fun  clickListener(){
+    private fun clickListener() {
         binding.apply {
             backButton.setOnClickListener {
-              onBackPressed()
+                onBackPressed()
             }
 
             deleteBtn.setOnClickListener {
-                lifecycleScope.launch(Dispatchers.Main){
-                    withContext(Dispatchers.IO){ PledgeCrud.deletePledge(pledge.personalDetails.email)}
-                    Snackbar.make(it,"Pledge Deleted Successfully",Snackbar.LENGTH_SHORT).show()
+                lifecycleScope.launch(Dispatchers.Main) {
+                    withContext(Dispatchers.IO) { PledgeCrud.deletePledge(pledge.personalDetails.email) }
+                    Snackbar.make(it, "Pledge Deleted Successfully", Snackbar.LENGTH_SHORT).show()
                     delay(1000)
                     startActivity(Intent(this@ManagePledgeDetail, ManagePledge::class.java))
                     finish()
@@ -57,8 +56,13 @@ class ManagePledgeDetail : AppCompatActivity() {
 
             completedBtn.setOnClickListener {
                 lifecycleScope.launch(Dispatchers.Main) {
-                    withContext(Dispatchers.IO){PledgeCrud.updatePledgeStatus(pledge.personalDetails.email, "Completed")}
-                    Snackbar.make(it,"Pledge Marked as Completed",Snackbar.LENGTH_SHORT).show()
+                    withContext(Dispatchers.IO) {
+                        PledgeCrud.updatePledgeStatus(
+                            pledge.personalDetails.email,
+                            "Completed"
+                        )
+                    }
+                    Snackbar.make(it, "Pledge Marked as Completed", Snackbar.LENGTH_SHORT).show()
                     delay(1000)
                     startActivity(Intent(this@ManagePledgeDetail, ManagePledge::class.java))
                     finish()

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
     id("kotlin-kapt")
-    id ("kotlin-parcelize")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -86,7 +86,6 @@ dependencies {
     //mapbox
 //    implementation("com.mapbox.maps:android:11.8.0")
 //    implementation ("com.mapbox.api:mapbox-geocoding:9.6.2")
-
 
 
 }

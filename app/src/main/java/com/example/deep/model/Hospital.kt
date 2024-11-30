@@ -1,9 +1,12 @@
 package com.example.deep.model
 
+import android.os.Parcelable
+import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
+import kotlinx.parcelize.Parcelize
 
-
+@Parcelize
 data class Hospital(
     val hospitalName: String = "",
     val emailAddress: String = "",
@@ -11,8 +14,9 @@ data class Hospital(
     val district: String = "",
     val state: String = "",
     val contactPerson: String = "",
-    val contactNumber: String = ""
-)
+    val contactNumber: String = "",
+    val isDetailsCorrect: Boolean = true
+) : Parcelable
 
 
 class HospitalCrud {
@@ -52,7 +56,7 @@ class HospitalCrud {
                 val result = hospitalRef.get().await()
                 result.toObjects(Hospital::class.java)
             } catch (e: Exception) {
-                println("Error retrieving all hospitals: ${e.message}")
+                Log.e("HospitalCrud", "Error retrieving hospitals: ${e.message}")
                 emptyList()
             }
         }
@@ -64,6 +68,15 @@ class HospitalCrud {
             } catch (e: Exception) {
                 println("Error checking hospital existence: ${e.message}")
                 false
+            }
+        }
+
+        suspend fun deleteHospital(emailAddress: String) {
+            try {
+                hospitalRef.document(emailAddress).delete().await()
+                println("Hospital successfully deleted")
+            } catch (e: Exception) {
+                println("Error deleting hospital: ${e.message}")
             }
         }
 
