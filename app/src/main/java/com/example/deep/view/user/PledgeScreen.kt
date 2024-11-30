@@ -41,6 +41,7 @@ class PledgeScreen : AppCompatActivity() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            window.statusBarColor=resources.getColor(R.color.action_color, null)
             insets
         }
 
@@ -53,7 +54,7 @@ class PledgeScreen : AppCompatActivity() {
 
     private fun clickListener() {
         binding.apply {
-            backButton.setOnClickListener {
+            backBtn.setOnClickListener {
                 onBackPressed()
             }
 

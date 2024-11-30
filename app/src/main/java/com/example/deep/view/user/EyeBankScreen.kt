@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +43,8 @@ class EyeBankScreen : AppCompatActivity() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_eye_bank)
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -170,8 +173,7 @@ class EyeBankScreen : AppCompatActivity() {
     private fun setUpClickListener() {
         binding.apply {
             backButton.setOnClickListener {
-                onBackPressed()
-            }
+                onBackPressed() }
         }
     }
 

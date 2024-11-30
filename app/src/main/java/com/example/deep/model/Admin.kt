@@ -23,6 +23,15 @@ class Admin {
                 null
             }
         }
+
+        suspend fun updateAdminCrediantials(username: String, password: String){
+            try {
+                adminRef.document("Credentials").update("username", username, "password", password).await()
+            }
+            catch (e:Exception){
+                e.printStackTrace()
+            }
+        }
     }
 }
 

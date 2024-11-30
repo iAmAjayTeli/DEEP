@@ -44,15 +44,19 @@ class AdminLogin : AppCompatActivity() {
                 onBackPressed()
             }
 
+            forgotPasswordTxt.setOnClickListener {
+                startActivity(Intent(this@AdminLogin, ChangeCredentials::class.java))
+                intent.putExtra("isChangePassword", true)
+                intent.putExtra("isChangeUsername", false)
+            }
+
             login.setOnClickListener {
                 val username = userName.text.toString().trim()
                 val password = password.text.toString().trim()
 
                 if (username.isEmpty() || password.isEmpty()) {
                     Snackbar.make(
-                        binding.root,
-                        "Enter username and password",
-                        Snackbar.LENGTH_SHORT
+                        binding.root, "Enter username and password", Snackbar.LENGTH_SHORT
                     ).show()
                 } else {
                     loadingDialog.startLoading()
@@ -75,7 +79,6 @@ class AdminLogin : AppCompatActivity() {
                         }
                     }
                 }
-
             }
         }
     }

@@ -48,6 +48,10 @@ class AdminHome : AppCompatActivity() {
                 navigateTo(AddSuccessStories())
             }
 
+            settingCardView.setOnClickListener {
+                navigateTo(AdminSetting())
+            }
+
 
         }
     }

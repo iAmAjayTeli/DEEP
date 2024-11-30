@@ -21,10 +21,11 @@ class HelpSupport : AppCompatActivity() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            window.statusBarColor=resources.getColor(R.color.action_color, null)
             insets
         }
 
-        val backButton = binding.backButton
+        val backButton = binding.backBtn
         val tabLayout = binding.tabLayout
         val viewPager = binding.viewPager
 
