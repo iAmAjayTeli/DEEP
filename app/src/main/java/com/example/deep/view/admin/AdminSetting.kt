@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.deep.R
 import com.example.deep.databinding.ActivityAdminSettingBinding
 import com.example.deep.util.SharedPreference
-import com.example.deep.view.user.OnBoarding2
+import com.example.deep.view.user.MainActivity
 
 class AdminSetting : AppCompatActivity() {
     private lateinit var binding: ActivityAdminSettingBinding
@@ -52,7 +52,7 @@ class AdminSetting : AppCompatActivity() {
             }
 
             logoutLayout.setOnClickListener {
-               SharedPreference(this@AdminSetting).logout(SharedPreference(this@AdminSetting),OnBoarding2())
+               SharedPreference(this@AdminSetting).logout(SharedPreference(this@AdminSetting),MainActivity())
             }
         }
 

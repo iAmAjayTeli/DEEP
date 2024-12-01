@@ -79,14 +79,6 @@
                     android:orientation="horizontal">
 
                     <!-- Status Chip -->
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/status_chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{pledgeDetails.pledgeStatus}"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        app:chipBackgroundColor="#FFB300" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/viewMoreBtn"

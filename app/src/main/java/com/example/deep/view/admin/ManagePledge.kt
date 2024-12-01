@@ -1,26 +1,34 @@
 package com.example.deep.view.admin
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.deep.R
+import com.example.deep.adapter.PledgeAdapter
 import com.example.deep.databinding.ActivityManagePledgeBinding
-import com.example.deep.handler.LoadingDialog
-import com.example.deep.view.user.Faq
-import com.google.android.material.tabs.TabLayoutMediator
+import com.example.deep.model.PledgeCrud
+import com.example.deep.model.Pledges
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ManagePledge : AppCompatActivity() {
     private lateinit var binding: ActivityManagePledgeBinding
     private lateinit var searchView: SearchView
-    private lateinit var loadingDialog: LoadingDialog
-    private lateinit var viewPager: ViewPager
+    private lateinit var loading: LottieAnimationView
+    private lateinit var adapter: PledgeAdapter
+    private lateinit var recyclerView: RecyclerView
+    private var pledgeList = listOf<Pledges>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,50 +41,65 @@ class ManagePledge : AppCompatActivity() {
             insets
         }
 
-        setupViewpager()
-        setupClickListener()
+        // Initialize views
+        searchView = binding.searchView
+        loading = binding.loading
+        recyclerView = binding.completedPledgeRecycler
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
+        // Initialize adapter with empty list
+        adapter = PledgeAdapter(emptyList(),this)
+        recyclerView.adapter = adapter
+
+        // Set up search functionality
+        setupSearchView()
+
+        // Fetch and display pledges
+        getPledgeList()
     }
 
-    private fun setupViewpager() {
-        val tabLayout = binding.tabLayout
-        val viewPager = binding.viewPager2
-
-        val adapter = PledgeViewPageAdapter(this)
-        viewPager.adapter = adapter
-
-        // Link TabLayout and ViewPager2
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = when (position) {
-                0 -> "Pending"
-                1 -> "Completed"
-                else -> "Tab $position"
+    private fun setupSearchView() {
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Not used
+                return false
             }
-        }.attach()
 
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val filteredList = if (newText.isNullOrEmpty()) {
+                    pledgeList
+                } else {
+                    pledgeList.filter {
+                        it.personalDetails.fullName.contains(newText, ignoreCase = true) ||
+                                it.personalDetails.email.contains(newText, ignoreCase = true)
+                    }
+                }
+                adapter.updatePledgeList(filteredList)
+                return true
+            }
+        })
     }
 
-    private fun setupClickListener() {
-        binding.apply {
-            backBtn.setOnClickListener {
-                finish()
+    private fun getPledgeList() {
+        loading.visibility = View.VISIBLE
+        lifecycleScope.launch(Dispatchers.Main) {
+            try {
+                val pledges = withContext(Dispatchers.IO) { PledgeCrud.getPledges() }
+                if (pledges.isNotEmpty()) {
+                    pledgeList = pledges
+                    adapter.updatePledgeList(pledgeList)
+                    binding.noPledgeCardView.visibility = View.GONE
+                } else {
+                    adapter.updatePledgeList(emptyList()) // Clear the adapter if no pledges are found
+                    binding.noPledgeCardView.visibility = View.VISIBLE
+                }
+            } catch (e: Exception) {
+                Log.e("ManagePledge", "Error fetching pledges", e)
+                binding.noPledgeCardView.visibility = View.VISIBLE
+            } finally {
+                loading.visibility = View.GONE
             }
         }
-    }
-
-
-    // Pager Adapter for ViewPager2
-    class PledgeViewPageAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
-        override fun getItemCount(): Int = 2
-
-        override fun createFragment(position: Int): Fragment {
-            return when (position) {
-                0 -> PendingPledge() // First tab
-                1 -> CompletedEyePledge() // Second tab
-                else -> Faq()
-            }
-        }
-
     }
 
 }
