@@ -75,7 +75,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
-            android:background="@drawable/loading_bar_back"
+            android:background="@drawable/edt_back"
             app:layout_constraintTop_toBottomOf="@+id/backLinear"
             tools:layout_editor_absoluteX="0dp" />
 
