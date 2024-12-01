@@ -3,9 +3,7 @@ package com.example.deep.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import com.example.deep.model.Users
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import java.util.UUID
 
 class SharedPreference(private val context: Context) {
@@ -26,6 +24,7 @@ class SharedPreference(private val context: Context) {
             saveInstallationId(savedInstallId)
         }
     }
+
     // Save admin login status
     fun saveAdminLoggedIn(isLoggedIn: Boolean) {
         with(sharedPref.edit()) {
@@ -39,25 +38,7 @@ class SharedPreference(private val context: Context) {
         return sharedPref.getBoolean("isAdminLoggedIn", false)
     }
 
-    fun saveUser(user: Users) {
-        val userDetails = gson.toJson(user)
-        with(sharedPref.edit()) {
-            putString("UserRole", userDetails)
-            apply()
-        }
-    }
 
-    fun getUserDetails(): Users? {
-        val userDetailsJson = sharedPref.getString("UserRole", null)
-
-        return if (userDetailsJson != null) {
-            val userType = object : TypeToken<Users>() {}.type
-            val user = gson.fromJson<Users>(userDetailsJson, userType)
-            user
-        } else {
-            null
-        }
-    }
 
     private fun saveInstallationId(id: String) {
         with(sharedPref.edit()) {
@@ -71,7 +52,6 @@ class SharedPreference(private val context: Context) {
             remove("UserRole")
             apply()
         }
-
     }
 
     fun logout(sharedPreference: SharedPreference, activity:Activity) {

@@ -84,7 +84,7 @@ class AdminLogin : AppCompatActivity() {
                             loadingDialog.isDismiss()
                             Snackbar.make(binding.root, "Login Successful", Snackbar.LENGTH_SHORT)
                                 .show()
-                            delay(1000)
+                            delay(500)
 
                             // Save admin login status
                             sharedPreference.saveAdminLoggedIn(true)

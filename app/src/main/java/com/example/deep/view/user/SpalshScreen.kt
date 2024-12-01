@@ -10,9 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.deep.R
-import com.example.deep.model.Users
 import com.example.deep.util.SharedPreference
-import com.example.deep.view.admin.AdminLogin
+import com.example.deep.view.admin.AdminHome
 
 class SplashScreen : AppCompatActivity() {
 
@@ -31,6 +30,7 @@ class SplashScreen : AppCompatActivity() {
 
         sharedPreference = SharedPreference(this)
 
+
         // Delay for splash screen
         Handler(Looper.getMainLooper()).postDelayed({
             navigateToNextScreen()
@@ -47,26 +47,17 @@ class SplashScreen : AppCompatActivity() {
             // First time launching the app → Navigate to OnBoarding
             startActivity(Intent(this, OnBoarding::class.java))
             sharedPreferences.edit().putBoolean("isFirstLaunch", false).apply()
+            sharedPreference.saveAdminLoggedIn(false)
         } else {
             // Check the saved role from SharedPreference
-            val userDetails: Users? = sharedPreference.getUserDetails()
-
-            when {
-                userDetails == null -> {
-                    // No role saved → Navigate to OnBoarding2 (User/Admin Selection)
-                    startActivity(Intent(this, OnBoarding2::class.java))
-                }
-                userDetails.role == "user" -> {
-                    // Role is "user" → Navigate to MainActivity
-                    startActivity(Intent(this, MainActivity::class.java))
-                }
-                userDetails.role == "admin" -> {
-                    // Role is "admin" → Navigate to AdminLogin
-                    startActivity(Intent(this, AdminLogin::class.java))
-                }
+               if (sharedPreference.isAdminLoggedIn()){
+                   // Role is "admin" → Navigate to AdminLogin
+                   startActivity(Intent(this, AdminHome::class.java))
+               }
+                else{
+                startActivity(Intent(this, MainActivity::class.java)) }
             }
-        }
+        finish()
 
-        finish() // Finish the splash screen activity
     }
-}
+    }

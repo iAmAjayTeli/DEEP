@@ -24,7 +24,7 @@ class OnBoarding : AppCompatActivity() {
         val next = findViewById<ImageView>(R.id.next)
 
         next.setOnClickListener {
-            startActivity(Intent(this, OnBoarding2::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }

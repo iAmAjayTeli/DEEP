@@ -64,41 +64,79 @@
 
 
             </LinearLayout>
+
+
         </LinearLayout>
 
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
+        <SearchView
+            android:id="@+id/searchView"
+            android:iconifiedByDefault="false"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/attendance_bg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/backLinear"
-            app:tabGravity="fill"
-            app:tabIndicator="@drawable/leave_tab_indicator_bg"
-            app:tabIndicatorAnimationMode="elastic"
-            app:tabIndicatorColor="@null"
-            app:tabIndicatorFullWidth="true"
-            app:tabIndicatorGravity="stretch"
-            app:tabMaxWidth="0dp"
-            app:tabMode="fixed"
-            app:tabRippleColor="@null"
-            app:tabSelectedTextColor="@color/white" />
+            android:layout_marginHorizontal="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/loading_bar_back"
+            app:layout_constraintTop_toBottomOf="@+id/backLinear"
+            tools:layout_editor_absoluteX="0dp" />
 
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_animation" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/noPledgeCardView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/action_color"
+            android:elevation="5dp"
+            android:visibility="gone"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexend_semibold"
+                    android:text="No Completed Pledge"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/completedPledgeRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

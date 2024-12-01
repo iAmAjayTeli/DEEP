@@ -22,7 +22,7 @@ import com.example.deep.view.user.AboutUs
 import com.example.deep.view.user.EyeBankScreen
 import com.example.deep.view.user.HelpSupport
 import com.example.deep.view.user.HospitalRegisteration
-import com.example.deep.view.user.OnBoarding2
+import com.example.deep.view.user.MainActivity
 import com.example.deep.view.user.PledgeScreen
 import com.example.deep.view.user.SuccessStoriesScreen
 
@@ -107,7 +107,6 @@ NavigationDrawerSetup(
             }
 
             "Admin Login" -> {
-                SharedPreference(context).clearSharedPreferenceDetails()
                 navigateTo(AdminLogin())
             }
 
@@ -128,7 +127,7 @@ NavigationDrawerSetup(
             }
 
             "Logout" -> {
-                SharedPreference(context).logout(SharedPreference(context), AdminLogin())
+                SharedPreference(context).logout(SharedPreference(context), MainActivity())
             }
 
 
