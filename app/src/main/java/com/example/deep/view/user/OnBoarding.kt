@@ -23,14 +23,8 @@ class OnBoarding : AppCompatActivity() {
 
         val next = findViewById<ImageView>(R.id.next)
 
-        val sharedPreferences: SharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putBoolean("isFirstLaunch", false)
-        editor.apply()
-
-
         next.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, OnBoarding2::class.java))
             finish()
         }
     }

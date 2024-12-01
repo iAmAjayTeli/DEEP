@@ -525,36 +525,6 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:id="@+id/nearestEyeBank"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15sp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginBottom="15dp">
-
-                    <ImageView
-                        android:id="@+id/focus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/search"
-                        app:tint="@color/blue" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/focus"
-                        android:fontFamily="@font/lexend_medium"
-                        android:text="Find nearest eye bank"
-                        android:textColor="@color/blue"
-                        android:textSize="13sp" />
-
-                </RelativeLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/selectStateLayout"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
@@ -565,6 +535,7 @@
                     app:boxBackgroundColor="@color/grey"
                     app:boxStrokeColor="@color/blue"
                     app:boxStrokeWidth="0dp"
+                    android:layout_marginTop="5dp"
                     app:endIconMode="dropdown_menu"
                     app:expandedHintEnabled="false"
                     app:hintEnabled="true"

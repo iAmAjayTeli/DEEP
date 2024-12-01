@@ -12,6 +12,7 @@ import com.example.deep.R
 import com.example.deep.adapter.DrawerAdapter
 import com.example.deep.databinding.NavHeaderBinding
 import com.example.deep.model.DrawerItem
+import com.example.deep.util.SharedPreference
 import com.example.deep.view.admin.AddSuccessStories
 import com.example.deep.view.admin.AdminLogin
 import com.example.deep.view.admin.AdminSetting
@@ -21,7 +22,7 @@ import com.example.deep.view.user.AboutUs
 import com.example.deep.view.user.EyeBankScreen
 import com.example.deep.view.user.HelpSupport
 import com.example.deep.view.user.HospitalRegisteration
-import com.example.deep.view.user.MainActivity
+import com.example.deep.view.user.OnBoarding2
 import com.example.deep.view.user.PledgeScreen
 import com.example.deep.view.user.SuccessStoriesScreen
 
@@ -72,7 +73,7 @@ NavigationDrawerSetup(
                 DrawerItem(R.drawable.success, "Add Success Stories"),
                 DrawerItem(R.drawable.hospital, "Manage Hospital"),
                 DrawerItem(R.drawable.setting, "Setting"),
-                DrawerItem(R.drawable.login, "Back to User")
+                DrawerItem(R.drawable.login, "Logout")
             )
         }
         return list
@@ -106,6 +107,7 @@ NavigationDrawerSetup(
             }
 
             "Admin Login" -> {
+                SharedPreference(context).clearSharedPreferenceDetails()
                 navigateTo(AdminLogin())
             }
 
@@ -125,9 +127,10 @@ NavigationDrawerSetup(
                 navigateTo(AdminSetting())
             }
 
-            "Back to User" -> {
-                navigateTo(MainActivity())
+            "Logout" -> {
+                SharedPreference(context).logout(SharedPreference(context), AdminLogin())
             }
+
 
         }
     }

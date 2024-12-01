@@ -9,6 +9,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.example.deep.R
 import com.example.deep.databinding.ActivityAdminSettingBinding
+import com.example.deep.util.SharedPreference
+import com.example.deep.view.user.OnBoarding2
 
 class AdminSetting : AppCompatActivity() {
     private lateinit var binding: ActivityAdminSettingBinding
@@ -47,6 +49,10 @@ class AdminSetting : AppCompatActivity() {
                 intent.putExtra("isAdminSetting",true)
                 startActivity(intent)
                 finish()
+            }
+
+            logoutLayout.setOnClickListener {
+               SharedPreference(this@AdminSetting).logout(SharedPreference(this@AdminSetting),OnBoarding2())
             }
         }
 

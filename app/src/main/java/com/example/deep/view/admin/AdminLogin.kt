@@ -13,6 +13,7 @@ import com.example.deep.R
 import com.example.deep.databinding.ActivityAdminLoginBinding
 import com.example.deep.handler.LoadingDialog
 import com.example.deep.model.Admin
+import com.example.deep.util.SharedPreference
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -22,10 +23,25 @@ import kotlinx.coroutines.withContext
 class AdminLogin : AppCompatActivity() {
     private lateinit var binding: ActivityAdminLoginBinding
     private lateinit var loadingDialog: LoadingDialog
+    private lateinit var sharedPreference: SharedPreference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_admin_login)
+
+        // Initialize SharedPreference
+        sharedPreference = SharedPreference(this)
+
+
+
+
+        // Check if the admin is already logged in
+        if (sharedPreference.isAdminLoggedIn()) {
+            navigateToAdminHome()
+            return
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -35,7 +51,6 @@ class AdminLogin : AppCompatActivity() {
         loadingDialog = LoadingDialog(this, "Please wait.....")
 
         setupClickListener()
-
     }
 
     private fun setupClickListener() {
@@ -70,8 +85,12 @@ class AdminLogin : AppCompatActivity() {
                             Snackbar.make(binding.root, "Login Successful", Snackbar.LENGTH_SHORT)
                                 .show()
                             delay(1000)
-                            startActivity(Intent(this@AdminLogin, AdminHome::class.java))
-                            finish()
+
+                            // Save admin login status
+                            sharedPreference.saveAdminLoggedIn(true)
+
+                            // Navigate to AdminHome
+                            navigateToAdminHome()
                         } else {
                             loadingDialog.isDismiss()
                             Snackbar.make(binding.root, "Login Failed", Snackbar.LENGTH_SHORT)
@@ -81,5 +100,10 @@ class AdminLogin : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun navigateToAdminHome() {
+        startActivity(Intent(this@AdminLogin, AdminHome::class.java))
+        finish()
     }
 }
