@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:201899779799:android:0033cc08dcd7b654afb292",
+        "android_client_info": {
+          "package_name": "com.deep.eyedonation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmA-ZQ7oBKXepcX12-g8O6uWPsYsU6fus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:201899779799:android:5e52f677ba47134fafb292",
         "android_client_info": {
           "package_name": "com.example.deep"

@@ -16,81 +16,97 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DEEP"
         tools:targetApi="31">
+
         <activity
-            android:name=".view.user.OnBoarding2"
+            android:name="com.deep.eyedonation.view.admin.ChangeCredentials"
             android:exported="false" />
+
         <activity
-            android:name=".view.admin.ChangeCredentials"
+            android:name="com.deep.eyedonation.view.admin.ManageAddedStory"
             android:exported="false" />
+
         <activity
-            android:name=".view.admin.ManageAddedStory"
+            android:name="com.deep.eyedonation.view.admin.ManageHospitalDetail"
             android:exported="false" />
+
         <activity
-            android:name=".view.admin.ManageHospitalDetail"
+            android:name="com.deep.eyedonation.view.admin.ManagePledgeDetail"
             android:exported="false" />
+
         <activity
-            android:name=".view.admin.ManagePledgeDetail"
+            android:name="com.deep.eyedonation.view.admin.AdminSetting"
             android:exported="false" />
+
         <activity
-            android:name=".view.admin.AdminSetting"
-            android:exported="false" />
-        <activity
-            android:name=".view.admin.AddSuccessStories"
+            android:name="com.deep.eyedonation.view.admin.AddSuccessStories"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
-            android:name=".view.admin.ManageHospital"
+            android:name="com.deep.eyedonation.view.admin.ManageHospital"
             android:exported="false" />
+
         <activity
-            android:name=".view.admin.ManagePledge"
+            android:name="com.deep.eyedonation.view.admin.ManagePledge"
             android:exported="true" />
+
         <activity
-            android:name=".view.user.HospitalConfirmedScreen"
-            android:exported="false" />
-        <activity
-            android:name=".view.user.HospitalRegisteration"
+            android:name="com.deep.eyedonation.view.user.HospitalRegisteration"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
-            android:name=".view.admin.AdminHome"
+            android:name="com.deep.eyedonation.view.admin.AdminHome"
             android:exported="true" />
+
         <activity
-            android:name=".view.admin.AdminLogin"
+            android:name="com.deep.eyedonation.view.admin.AdminLogin"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
-            android:name=".view.user.PledgeConfirmedScreen"
+            android:name="com.deep.eyedonation.view.user.PledgeConfirmedScreen"
             android:exported="true" />
+
         <activity
-            android:name=".view.user.AboutUs"
+            android:name="com.deep.eyedonation.view.user.AboutUs"
             android:exported="false" />
+
         <activity
-            android:name=".view.user.SuccessStoriesScreen"
+            android:name="com.deep.eyedonation.view.user.SuccessStoriesScreen"
             android:exported="false" />
+
         <activity
-            android:name=".view.user.HelpSupport"
+            android:name="com.deep.eyedonation.view.user.HelpSupport"
             android:exported="false" />
+
         <activity
-            android:name=".view.user.PledgeScreen"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".view.user.EyeBankScreen"
+            android:name="com.deep.eyedonation.view.user.PledgeScreen"
             android:exported="false" />
+
         <activity
-            android:name=".view.user.OnBoarding"
+            android:name="com.deep.eyedonation.view.user.EyeBankScreen"
             android:exported="false" />
+
         <activity
-            android:name=".view.user.SplashScreen"
+            android:name="com.deep.eyedonation.view.user.OnBoarding"
+            android:exported="false" />
+
+        <activity
+            android:name="com.deep.eyedonation.view.user.SplashScreen"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+
         <activity
-            android:name=".view.user.MainActivity"
+            android:name="com.deep.eyedonation.view.user.MainActivity"
             android:exported="true" />
 
         <meta-data

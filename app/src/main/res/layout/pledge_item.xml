@@ -6,7 +6,7 @@
 
         <variable
             name="pledgeDetails"
-            type="com.example.deep.model.Pledges" />
+            type="com.deep.eyedonation.model.Pledges" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

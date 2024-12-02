@@ -7,7 +7,7 @@
 
         <variable
             name="pledgeDetails"
-            type="com.example.deep.model.Pledges" />
+            type="com.deep.eyedonation.model.Pledges" />
 
         <import type="android.view.View" />
 

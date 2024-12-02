@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -7,18 +9,33 @@ plugins {
 }
 
 android {
-    namespace = "com.example.deep"
+    namespace = "com.deep.eyedonation"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.deep"
+        applicationId = "com.deep.eyedonation"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Load API key from local.properties
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+
+        // Retrieve API key
+        val apiKey = properties.getProperty("MAPS_API") ?: ""
+
+        // Add the API key as a BuildConfig field
+        buildConfigField("String", "MAPS_API", "\"$apiKey\"")
+
+        // Add logging for release build
+        buildConfigField("boolean", "LOG_ENABLED", "true")
+
     }
+
 
     packagingOptions {
         resources {
@@ -31,10 +48,10 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
 
         }
@@ -49,6 +66,10 @@ android {
 
     buildFeatures {
         dataBinding = true
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
 }
@@ -78,7 +99,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
-
 
 
 }

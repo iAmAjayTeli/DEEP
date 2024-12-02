@@ -70,12 +70,12 @@
 
         <SearchView
             android:id="@+id/searchView"
-            android:iconifiedByDefault="false"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="10dp"
             android:background="@drawable/edt_back"
+            android:iconifiedByDefault="false"
             app:layout_constraintTop_toBottomOf="@+id/backLinear"
             tools:layout_editor_absoluteX="0dp" />
 
@@ -123,8 +123,6 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
-
 
 
         <androidx.recyclerview.widget.RecyclerView
