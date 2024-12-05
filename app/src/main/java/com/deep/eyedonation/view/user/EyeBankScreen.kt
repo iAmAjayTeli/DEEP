@@ -1,11 +1,14 @@
 package com.deep.eyedonation.view.user
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
+import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -25,8 +28,13 @@ import com.deep.eyedonation.api.RetrofitClient
 import com.deep.eyedonation.databinding.ActivityEyeBankBinding
 import com.deep.eyedonation.model.EyeBank
 import com.deep.eyedonation.model.PlacesResponse
+import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.maps.model.LatLng
 
 class EyeBankScreen : AppCompatActivity() {
@@ -70,6 +78,23 @@ class EyeBankScreen : AppCompatActivity() {
         setUpClickListener()
     }
 
+    private val locationCallback = object : LocationCallback() {
+        override fun onLocationResult(locationResult: LocationResult) {
+            super.onLocationResult(locationResult)
+            val location = locationResult.lastLocation
+            if (location != null) {
+                val latitude = location.latitude
+                val longitude = location.longitude
+                fetchNearbyEyeBanks(latitude, longitude)
+                // Remove the listener to avoid further updates
+                fusedLocationClient.removeLocationUpdates(this)
+            }
+        }
+    }
+
+// In getCurrentLocationAndFetchPlaces() after checking location settings:
+
+
     private val requestLocationPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             if (isGranted) {
@@ -80,7 +105,34 @@ class EyeBankScreen : AppCompatActivity() {
         }
 
     private fun getCurrentLocationAndFetchPlaces() {
-        // Check if the location is available
+        val settingsClient = LocationServices.getSettingsClient(this)
+        val locationSettingsRequest = LocationSettingsRequest.Builder()
+            .addLocationRequest(
+                LocationRequest.create().apply {
+                    priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+                }
+            ).build()
+
+        settingsClient.checkLocationSettings(locationSettingsRequest)
+            .addOnSuccessListener {
+                // Location settings are satisfied, request location updates
+                startLocationUpdates()
+            }
+            .addOnFailureListener { exception ->
+                if (exception is ResolvableApiException) {
+                    try {
+                        exception.startResolutionForResult(
+                            this@EyeBankScreen,
+                            REQUEST_CHECK_SETTINGS
+                        )
+                    } catch (sendEx: IntentSender.SendIntentException) {
+                        // Ignore the error
+                    }
+                }
+            }
+    }
+
+    private fun startLocationUpdates() {
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -89,31 +141,31 @@ class EyeBankScreen : AppCompatActivity() {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return
         }
-        fusedLocationClient.lastLocation
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val location: Location? = task.result
-                    if (location != null) {
-                        val latitude = location.latitude
-                        val longitude = location.longitude
-                        fetchNearbyEyeBanks(latitude, longitude)
-                    } else {
-                        Toast.makeText(this, "Unable to get location", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    Toast.makeText(this, "Failed to get location", Toast.LENGTH_SHORT).show()
-                }
-            }
+        fusedLocationClient.requestLocationUpdates(
+            LocationRequest.create().apply {
+                priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+            },
+            locationCallback,
+            Looper.getMainLooper()
+        )
     }
+
+    // Handle the result of the location settings request
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CHECK_SETTINGS) {
+            if (resultCode == Activity.RESULT_OK) {
+                // Location settings enabled, start location updates
+                startLocationUpdates()
+            } else {
+                // Location settings not enabled, handle accordingly
+                Toast.makeText(this, "Location services are required", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 
     private fun fetchNearbyEyeBanks(latitude: Double, longitude: Double) {
         val location = "$latitude,$longitude"
@@ -206,5 +258,9 @@ class EyeBankScreen : AppCompatActivity() {
         if (mapIntent.resolveActivity(packageManager) != null) {
             startActivity(mapIntent)
         }
+    }
+
+    companion object {
+        private const val REQUEST_CHECK_SETTINGS = 1001
     }
 }
