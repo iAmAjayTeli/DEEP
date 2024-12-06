@@ -115,7 +115,6 @@ class EyeBankScreen : AppCompatActivity() {
 
         settingsClient.checkLocationSettings(locationSettingsRequest)
             .addOnSuccessListener {
-                // Location settings are satisfied, request location updates
                 startLocationUpdates()
             }
             .addOnFailureListener { exception ->
@@ -169,7 +168,7 @@ class EyeBankScreen : AppCompatActivity() {
 
     private fun fetchNearbyEyeBanks(latitude: Double, longitude: Double) {
         val location = "$latitude,$longitude"
-        val radius = 10000 // 10 km radius
+        val radius = 50000
         val type = "hospital"
         val keyword = "eye centre"
         val apiKey = BuildConfig.MAPS_API
@@ -248,7 +247,14 @@ class EyeBankScreen : AppCompatActivity() {
     }
 
     private fun displayEyeBanks(eyeBanks: List<EyeBank>) {
-        eyeBankAdapter.diff.submitList(eyeBanks)
+        if(eyeBanks.isEmpty()){
+            binding.noEyeBank.visibility = View.VISIBLE
+            return
+        }
+        else{
+            binding.noEyeBank.visibility = View.GONE
+            eyeBankAdapter.diff.submitList(eyeBanks)
+        }
     }
 
     private fun openGoogleMaps(latitude: Double, longitude: Double) {
