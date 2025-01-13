@@ -258,11 +258,14 @@ class EyeBankScreen : AppCompatActivity() {
     }
 
     private fun openGoogleMaps(latitude: Double, longitude: Double) {
-        val gmmIntentUri = Uri.parse("google.navigation:q=$latitude,$longitude")
+        val gmmIntentUri = Uri.parse("geo:$latitude,$longitude?q=$latitude,$longitude")
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         mapIntent.setPackage("com.google.android.apps.maps")
         if (mapIntent.resolveActivity(packageManager) != null) {
             startActivity(mapIntent)
+        } else {
+            // Handle the case where Google Maps is not installed
+            Toast.makeText(this, "Google Maps app not found", Toast.LENGTH_SHORT).show()
         }
     }
 

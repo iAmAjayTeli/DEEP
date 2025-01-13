@@ -313,6 +313,98 @@
                             android:layout_height="match_parent"
                             android:padding="15sp" />
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@android:color/darker_gray" />
+
+                        <TextView
+                            android:id="@+id/contactUs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/lexend"
+                            android:text="Contact Us"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/fullName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:padding="15dp"
+                            android:layout_marginTop="20sp"
+                            android:background="@drawable/edt_back"
+                            android:fontFamily="@font/lexend_semibold"
+                            android:hint="Your Full Name"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/emailAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:padding="15dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/edt_back"
+                            android:fontFamily="@font/lexend_semibold"
+                            android:hint="Your Email Address"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:padding="15dp"
+                            android:minHeight="150dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/edt_back"
+                            android:fontFamily="@font/lexend_semibold"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:hint="Your Queries or message"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/submitBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                          android:layout_marginStart="50dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/btn_back"
+                            android:fontFamily="@font/lexend"
+                            android:text="Submit"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:fontFamily="@font/lexend"
+                            android:gravity="center_vertical|center"
+                            android:textSize="11sp"
+                            android:padding="3dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/dark"
+                            android:background="@color/edttextBg"
+                            android:text="Copyright © 2025 DEEP. All rights reserved."
+                            />
 
                     </LinearLayout>
 
@@ -345,6 +437,8 @@
                 android:layout_gravity="start" />
 
         </LinearLayout>
+
+
 
     </androidx.drawerlayout.widget.DrawerLayout>
 
