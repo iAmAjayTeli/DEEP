@@ -2,7 +2,6 @@ package com.deep.eyedonation.view.user
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -157,8 +156,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                val responseBody = response.body?.string()
-                Log.d("Formspree Response", responseBody ?: "No response body")
+                val responseBodyString = response.body?.string() // Read the body ONCE
+                Log.d("Formspree Response", responseBodyString ?: "No response body")
+
                 runOnUiThread {
                     loading.isDismiss() // Dismiss loading here to ensure it's dismissed in all cases
                     if (response.isSuccessful) {
@@ -171,23 +171,21 @@ class MainActivity : AppCompatActivity() {
 
                         // Handle the redirect (if any)
                         try {
-                            val jsonResponse = responseBody?.let { JSONObject(it) }
+                            val jsonResponse = responseBodyString?.let { JSONObject(it) } // Use the stored string
                             val nextUrl = jsonResponse?.optString("next", "")
                             if (!nextUrl.isNullOrEmpty()) {
-                                // Redirect user (e.g., open a WebView or external browser)
-                                val intent = Intent(
-                                    Intent.ACTION_VIEW,
-                                    Uri.parse("https://formspree.io$nextUrl")
-                                )
-                                startActivity(intent)
+                               startActivity(Intent(this@MainActivity, ThanksScreen::class.java))
                             }
                         } catch (e: Exception) {
-                            Log.e("FormspreeRedirectError", "Error parsing or handling redirect: ${e.message}")
+                            Log.e(
+                                "FormspreeRedirectError",
+                                "Error parsing or handling redirect: ${e.message}"
+                            )
                         }
                     } else {
+
                         // Log the response for debugging
-                        val errorBody = response.body?.string()
-                        Log.e("FormspreeError", "Response code: ${response.code}, Body: $errorBody")
+                        Log.e("FormspreeError", "Response code: ${response.code}, Body: $responseBodyString") // Use the stored string
                         Snackbar.make(
                             binding.root,
                             "Failed to send message: ${response.message}",

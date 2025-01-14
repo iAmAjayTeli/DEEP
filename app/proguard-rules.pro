@@ -99,4 +99,8 @@
 -keep class com.google.gson.** { *; }
 -dontwarn com.google.gson.**
 
+-keep class com.google.** { *; }
+-keep class com.firebase.** { *; }
+
+
 
