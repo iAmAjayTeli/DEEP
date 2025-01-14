@@ -61,8 +61,6 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = binding.drawerLayout
         loading = LoadingDialog(this, "Sending...")
 
-        val menuIcon = binding.menuIcon
-
         setupNavigationDrawer()
         clickListeners()
         setupStoryRV()
