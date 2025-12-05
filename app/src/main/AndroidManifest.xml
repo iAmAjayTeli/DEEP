@@ -63,6 +63,10 @@
         <activity
             android:name=".view.user.PledgeConfirmedScreen"
             android:exported="true" />
+
+        <activity android:name=".view.user.HospitalConfirmedScreen"
+            android:exported="false"/>
+        
         <activity
             android:name=".view.user.AboutUs"
             android:exported="false" />
@@ -77,6 +81,9 @@
             android:exported="false" />
         <activity
             android:name=".view.user.EyeBankScreen"
+            android:exported="false" />
+        <activity
+            android:name=".view.user.EyeBankSearchScreen"
             android:exported="false" />
         <activity
             android:name=".view.user.OnBoarding"

@@ -15,6 +15,7 @@ data class Hospital(
     val state: String = "",
     val contactPerson: String = "",
     val contactNumber: String = "",
+    val eyeBankName: String = "",
     val isDetailsCorrect: Boolean = true
 ) : Parcelable
 
