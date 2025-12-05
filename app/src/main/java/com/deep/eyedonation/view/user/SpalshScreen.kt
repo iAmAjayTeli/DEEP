@@ -7,16 +7,19 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.deep.eyedonation.R
 import com.deep.eyedonation.util.SharedPreference
+import androidx.core.content.edit
 
 class SplashScreen : AppCompatActivity() {
 
     private lateinit var sharedPreference: SharedPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_spalsh_screen)
@@ -45,7 +48,7 @@ class SplashScreen : AppCompatActivity() {
         if (isFirstLaunch) {
             // First time launching the app → Navigate to OnBoarding
             startActivity(Intent(this, OnBoarding::class.java))
-            sharedPreferences.edit().putBoolean("isFirstLaunch", false).apply()
+            sharedPreferences.edit { putBoolean("isFirstLaunch", false) }
             sharedPreference.saveAdminLoggedIn(false)
         } else {
             // Check the saved role from SharedPreference

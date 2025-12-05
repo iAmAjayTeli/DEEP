@@ -6,30 +6,35 @@ plugins {
     alias(libs.plugins.google.gms.google.services)
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
     namespace = "com.deep.eyedonation"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.deep.eyedonation"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 36
+        versionCode = 4
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // Load API key from local.properties
         val properties = Properties()
         properties.load(project.rootProject.file("local.properties").inputStream())
 
-        // Retrieve API key
         val apiKey = properties.getProperty("MAPS_API") ?: ""
+        val placesWebKey = properties.getProperty("PLACES_WEB_API_KEY") ?: ""
 
-        // Add the API key as a BuildConfig field
+        // Keep this if you're using BuildConfig elsewhere
         buildConfigField("String", "MAPS_API", "\"$apiKey\"")
+        buildConfigField("String", "PLACES_WEB_API_KEY", "\"$placesWebKey\"")
+
+        // 🔴 This is needed for the Manifest!
+        manifestPlaceholders["MAPS_API_KEY"] = apiKey
+        manifestPlaceholders["PLACES_WEB_API_KEY"] = placesWebKey
 
         // Add logging for release build
         buildConfigField("boolean", "LOG_ENABLED", "true")
@@ -54,6 +59,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
 
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
+
         }
     }
     compileOptions {
@@ -72,6 +81,10 @@ android {
         buildConfig = true
     }
 
+    firebaseCrashlytics{
+        nativeSymbolUploadEnabled = true
+    }
+
 }
 
 dependencies {
@@ -81,6 +94,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -99,6 +113,16 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
+
+    // Import the BoM for the Firebase platform
+    implementation(platform(libs.firebase.bom))
+
+    // Add the dependencies for the Crashlytics NDK and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(libs.firebase.crashlytics.ndk)
+    implementation(libs.firebase.analytics)
+
+
 
 
 }

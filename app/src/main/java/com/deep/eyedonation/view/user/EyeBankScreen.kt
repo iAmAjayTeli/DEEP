@@ -57,9 +57,8 @@ class EyeBankScreen : AppCompatActivity() {
             insets
         }
 
-        if (BuildConfig.LOG_ENABLED) {
-            Log.d("EyeBankScreen", "Debug message")
-        }
+        Log.d("API_KEY_DEBUG", "MAPS API KEY: ${BuildConfig.MAPS_API}")
+        Log.d("EyeBankScreen", "Debug message")
 
         lottieAnimationView = binding.loading
         lottieAnimationView.visibility = View.VISIBLE
@@ -92,7 +91,7 @@ class EyeBankScreen : AppCompatActivity() {
         }
     }
 
-// In getCurrentLocationAndFetchPlaces() after checking location settings:
+   // In getCurrentLocationAndFetchPlaces() after checking location settings:
 
 
     private val requestLocationPermission =
@@ -171,7 +170,10 @@ class EyeBankScreen : AppCompatActivity() {
         val radius = 50000
         val type = "hospital"
         val keyword = "eye centre"
-        val apiKey = BuildConfig.MAPS_API
+
+        val apiKey = BuildConfig.PLACES_WEB_API_KEY
+        Log.e("KEY_CHECK", "DEBUG KEY: $apiKey")
+
 
         RetrofitClient.retrofit.getNearbyPlaces(location, radius, type, keyword, apiKey)
             .enqueue(object : retrofit2.Callback<PlacesResponse> {

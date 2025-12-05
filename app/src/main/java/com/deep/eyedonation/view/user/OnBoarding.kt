@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.deep.eyedonation.R
@@ -19,6 +20,8 @@ class OnBoarding : AppCompatActivity() {
             v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
             insets
         }
+
+
 
         val next = findViewById<ImageView>(R.id.next)
 

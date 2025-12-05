@@ -65,7 +65,6 @@ NavigationDrawerSetup(
                 DrawerItem(R.drawable.hospital, "Hospital Registration"),
                 DrawerItem(R.drawable.login, "Admin Login")
 
-
             )
         } else {
             list = listOf(
@@ -101,6 +100,7 @@ NavigationDrawerSetup(
             "Success Stories" -> {
                 navigateTo(SuccessStoriesScreen())
             }
+
 
             "Hospital Registration" -> {
                 navigateTo(HospitalRegisteration())

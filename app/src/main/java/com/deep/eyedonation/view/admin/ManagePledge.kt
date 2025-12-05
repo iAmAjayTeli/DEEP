@@ -56,7 +56,17 @@ class ManagePledge : AppCompatActivity() {
 
         // Fetch and display pledges
         getPledgeList()
+        setupClickListener()
     }
+
+    private fun setupClickListener(){
+        binding.apply {
+            backBtn.setOnClickListener {
+                onBackPressed()
+            }
+        }
+    }
+
 
     private fun setupSearchView() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -90,7 +100,7 @@ class ManagePledge : AppCompatActivity() {
                     adapter.updatePledgeList(pledgeList)
                     binding.noPledgeCardView.visibility = View.GONE
                 } else {
-                    adapter.updatePledgeList(emptyList()) // Clear the adapter if no pledges are found
+                    adapter.updatePledgeList(emptyList())
                     binding.noPledgeCardView.visibility = View.VISIBLE
                 }
             } catch (e: Exception) {

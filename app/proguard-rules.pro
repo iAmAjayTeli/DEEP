@@ -102,5 +102,22 @@
 -keep class com.google.** { *; }
 -keep class com.firebase.** { *; }
 
+# Keep AppCompatDelegate methods
+-keep class androidx.appcompat.app.AppCompatDelegate { *; }
+
+# Firebase Crashlytics
+-keepattributes SourceFile,LineNumberTable
+-keepattributes *Annotation*
+
+# Keep all Firebase Crashlytics classes
+-keep class com.google.firebase.crashlytics.** { *; }
+-dontwarn com.google.firebase.crashlytics.**
+
+# Keep the model class names used in Crashlytics custom keys (optional)
+-keepclassmembers class * {
+    @com.google.firebase.crashlytics.annotations.* <fields>;
+}
+
+
 
 
