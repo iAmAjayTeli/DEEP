@@ -168,7 +168,7 @@
                             android:layout_marginTop="20dp"
                             android:backgroundTint="@color/blue"
                             android:elevation="10dp"
-                            android:text="Register as a Donor"
+                            android:text="Family Donor Registration"
                             android:textColor="@color/action_color"
                             app:cornerRadius="10dp" />
 
@@ -184,7 +184,6 @@
                             app:cornerRadius="10dp"
                             app:rippleColor="@color/blue"
                             app:strokeColor="@color/blue" />
-
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"

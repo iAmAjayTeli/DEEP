@@ -86,6 +86,10 @@
             android:name=".view.user.EyeBankSearchScreen"
             android:exported="false" />
         <activity
+            android:name=".view.user.FamilyDonorRegistration"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".view.user.OnBoarding"
             android:exported="false" />
         <activity

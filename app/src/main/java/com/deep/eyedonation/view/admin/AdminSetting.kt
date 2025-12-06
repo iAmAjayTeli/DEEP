@@ -13,7 +13,6 @@ import com.deep.eyedonation.databinding.ActivityAdminSettingBinding
 import com.deep.eyedonation.util.SharedPreference
 import com.deep.eyedonation.view.user.MainActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 
 class AdminSetting : AppCompatActivity() {
     private lateinit var binding: ActivityAdminSettingBinding

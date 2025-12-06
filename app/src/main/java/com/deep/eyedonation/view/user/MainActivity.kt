@@ -84,12 +84,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             button.setOnClickListener {
-                startActivity(Intent(this@MainActivity, PledgeScreen::class.java))
+                startActivity(Intent(this@MainActivity, FamilyDonorRegistration::class.java))
             }
 
             button2.setOnClickListener {
                 startActivity(Intent(this@MainActivity, HospitalRegisteration::class.java))
-
             }
 
             submitBtn.setOnClickListener {

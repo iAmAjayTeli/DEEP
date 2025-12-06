@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.user.FamilyDonorRegistration">
+
+        <LinearLayout
+            android:id="@+id/backLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/card_background"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/back"
+                android:padding="5dp"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/screenTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexend_semibold"
+                android:text="Donor's Registration"
+                android:textColor="@color/dark"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backLinear">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical"
+                android:paddingBottom="30dp">
+
+                <!-- Note Section -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    app:cardBackgroundColor="#E3F2FD"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="2dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lexend_medium"
+                        android:padding="12dp"
+                        android:text="Note: This form can be completed by the family of a deceased person to request an eye donation. Please provide the correct details so the nearest eye bank can help quickly."
+                        android:textColor="#1565C0"
+                        android:textSize="12sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- DONOR'S DETAILS SECTION -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/donorDetailsTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/lexend_semibold"
+                        android:text="DONOR'S DETAILS"
+                        android:textColor="#CD000000"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/donorDetailsTxt"
+                        android:background="#1D000000" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/donorNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Full Name of Donor"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/person">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/donorName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="textPersonName"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/donorAgeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Age"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/donorAge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/donorGenderLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Gender"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:endIconMode="dropdown_menu"
+                    app:hintTextColor="@color/blue">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/donorGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:dropDownHeight="wrap_content"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="none"
+                        android:textSize="15sp"
+                        app:dropDownBackgroundTint="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/deathDateTimeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Date &amp; Time of Death"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/baseline_calendar_month_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/deathDateTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:fontFamily="@font/lexend_medium"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/causeOfDeathLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Cause of Death"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/causeOfDeath"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="textMultiLine"
+                        android:minHeight="55dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- FAMILY MEMBER/CONTACT PERSON DETAILS -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/familyDetailsTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/lexend_semibold"
+                        android:text="FAMILY MEMBER/CONTACT PERSON DETAILS"
+                        android:textColor="#CD000000"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/familyDetailsTxt"
+                        android:background="#1D000000" />
+
+                </RelativeLayout>
+
+                <!-- ... The rest of your form fields for family member details should follow here ... -->
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/contactPersonNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Full Name"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/person">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/contactPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="textPersonName"
+                        android:paddingStart="50dp"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/relationshipLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Relationship to Donor"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/relationship"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- LOCATION & NOTIFICATION SECTION -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/locationSectionTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/lexend_semibold"
+                        android:text="LOCATION &amp; NOTIFICATION"
+                        android:textColor="#CD000000"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/locationSectionTxt"
+                        android:background="#1D000000" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fullAddressLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Full Address"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/location">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fullAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="textMultiLine"
+                        android:maxLines="3"
+                        android:minHeight="55dp"
+                        android:paddingStart="50dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/fetchLocationBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:drawableStart="@drawable/location"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="8dp"
+                    android:text="Fetch My Location"
+                    android:textColor="@color/blue"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/countryCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="-8dp"
+                        android:background="@drawable/edt_back"
+                        android:clickable="false"
+                        android:drawablePadding="5dp"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/lexend_medium"
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="+91"
+                        android:textColorHint="#D9D9D9"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/contactNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="-5dp"
+                        android:background="@drawable/edt_back"
+                        android:fontFamily="@font/lexend_medium"
+                        android:hint="Contact Number"
+                        android:inputType="phone|number"
+                        android:maxLength="10"
+                        android:paddingStart="16dp"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/selectEyeBankBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/btn_back"
+                    android:backgroundTint="@color/dark"
+                    android:fontFamily="@font/lexend_medium"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="Select Nearest Eye Bank"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Location of eye banks to be added (to check if eye bank can receive notification)"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/selectedEyeBankLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Selected Eye Bank"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/eye_bank">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/selectedEyeBank"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="textMultiLine"
+                        android:maxLines="3"
+                        android:minHeight="55dp"
+                        android:paddingStart="50dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/eyeBankAddressLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Eye Bank Address"
+                    android:textColorHint="@color/grey"
+                    app:boxBackgroundColor="#E2E2E3"
+                    app:boxStrokeColor="@color/blue"
+                    app:boxStrokeWidth="0dp"
+                    app:hintTextColor="@color/blue"
+                    app:startIconDrawable="@drawable/home">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/eyeBankAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_back"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:fontFamily="@font/lexend_medium"
+                        android:inputType="textMultiLine"
+                        android:maxLines="3"
+                        android:minHeight="55dp"
+                        android:paddingStart="50dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/isCorrect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lexend_medium"
+                        android:paddingStart="15dp"
+                        android:text="I confirm that the information provided is accurate to the best of my knowledge."
+                        android:textColor="#92039BE5"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/submitBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/btn_back"
+                    android:fontFamily="@font/lexend"
+                    android:text="Submit &amp; Notify Eye Bank"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
