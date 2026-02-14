@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.user.HelpSupport">
+        tools:context=".view.user.FaqScreen">
 
         <LinearLayout
             android:id="@+id/backLinear"
@@ -21,7 +20,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
             <LinearLayout
                 android:id="@+id/profileLinear"
                 android:layout_width="match_parent"
@@ -33,7 +31,6 @@
                 android:orientation="horizontal"
                 android:padding="5dp">
 
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -44,7 +41,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/lexend_semibold"
-                        android:text="Help &amp; Support"
+                        android:text="FAQ"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/backBtn"
@@ -61,44 +58,19 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewFAQ"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:padding="8dp"
+            android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/backLinear">
-
-            <!-- Back Button and Title -->
-
-            <!-- Tab Layout -->
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textSize="17sp"
-                app:tabIndicatorColor="@color/black"
-                app:tabIndicatorFullWidth="true"
-                app:tabSelectedTextColor="@color/black"
-                app:tabTextColor="@color/grey" />
-
-            <!-- ViewPager2 for Tabs Content -->
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="15sp"
-                android:layout_weight="1" />
-        </LinearLayout>
-
+            app:layout_constraintTop_toBottomOf="@id/backLinear" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

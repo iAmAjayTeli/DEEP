@@ -74,7 +74,10 @@
             android:name=".view.user.SuccessStoriesScreen"
             android:exported="false" />
         <activity
-            android:name=".view.user.HelpSupport"
+            android:name=".view.user.FaqScreen"
+            android:exported="false" />
+        <activity
+            android:name=".view.user.ContactUsScreen"
             android:exported="false" />
         <activity
             android:name=".view.user.PledgeScreen"

@@ -19,9 +19,10 @@ import com.deep.eyedonation.view.admin.AdminSetting
 import com.deep.eyedonation.view.admin.ManageHospital
 import com.deep.eyedonation.view.admin.ManagePledge
 import com.deep.eyedonation.view.user.AboutUs
+import com.deep.eyedonation.view.user.ContactUsScreen
 import com.deep.eyedonation.view.user.EyeBankScreen
 import com.deep.eyedonation.view.user.FamilyDonorRegistration
-import com.deep.eyedonation.view.user.HelpSupport
+import com.deep.eyedonation.view.user.FaqScreen
 import com.deep.eyedonation.view.user.HospitalRegisteration
 import com.deep.eyedonation.view.user.MainActivity
 import com.deep.eyedonation.view.user.SuccessStoriesScreen
@@ -59,7 +60,8 @@ NavigationDrawerSetup(
             list = listOf(
                 DrawerItem(R.drawable.eye_bank, "Eye Bank"),
                 DrawerItem(R.drawable.eye_pledge, "Family Donor Registration"),
-                DrawerItem(R.drawable.terms_condition, "Help & Support"),
+                DrawerItem(R.drawable.terms_condition, "FAQ"),
+                DrawerItem(R.drawable.customer_care, "Contact Us"),
                 DrawerItem(R.drawable.about_us, "About Us"),
                 DrawerItem(R.drawable.success, "Success Stories"),
                 DrawerItem(R.drawable.hospital, "Hospital Registration"),
@@ -89,8 +91,12 @@ NavigationDrawerSetup(
                 navigateTo(FamilyDonorRegistration())
             }
 
-            "Help & Support" -> {
-                navigateTo(HelpSupport())
+            "FAQ" -> {
+                navigateTo(FaqScreen())
+            }
+
+            "Contact Us" -> {
+                navigateTo(ContactUsScreen())
             }
 
             "About Us" -> {
@@ -104,10 +110,6 @@ NavigationDrawerSetup(
 
             "Hospital Registration" -> {
                 navigateTo(HospitalRegisteration())
-            }
-
-            "Family Donor Registration" -> {
-                navigateTo(FamilyDonorRegistration())
             }
 
             "Admin Login" -> {

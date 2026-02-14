@@ -17,9 +17,8 @@ android {
         applicationId = "com.deep.eyedonation"
         minSdk = 26
         targetSdk = 36
-        versionCode = 4
-        versionName = "1.0.2"
-
+        versionCode = 5
+        versionName = "1.0.3"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         val properties = Properties()
@@ -105,7 +104,7 @@ dependencies {
     //lottie animation
     implementation(libs.lottie)
 
-    //google maps and places
+    //Google Maps and places
     implementation(libs.play.services.maps)
     implementation(libs.places)
 
@@ -121,8 +120,6 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation(libs.firebase.crashlytics.ndk)
     implementation(libs.firebase.analytics)
-
-
 
 
 }
