@@ -25,6 +25,10 @@
             android:name=".view.user.ThanksScreen"
             android:exported="false" />
         <activity
+            android:name=".view.user.FullScreenImageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
             android:name=".view.admin.ChangeCredentials"
             android:exported="false" />
         <activity

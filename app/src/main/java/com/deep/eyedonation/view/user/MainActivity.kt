@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,19 +12,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.deep.eyedonation.R
-import com.deep.eyedonation.adapter.SuccessStoriesAdapter
+import com.deep.eyedonation.adapter.OurWorkAdapter
 import com.deep.eyedonation.databinding.ActivityMainBinding
 import com.deep.eyedonation.handler.LoadingDialog
 import com.deep.eyedonation.handler.NavigationDrawerSetup
-import com.deep.eyedonation.model.SuccessStoriesCrud
+import com.deep.eyedonation.model.OurWork
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaType
@@ -63,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         setupNavigationDrawer()
         clickListeners()
-        setupStoryRV()
+        setupOurWorksRV()
     }
 
     private fun checkIfAdmin() {
@@ -195,27 +190,53 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun setupStoryRV() {
-        val recyclerView = binding.successStoriesRV
-        val adapter = SuccessStoriesAdapter(true) {
-        }
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        fetchStoriesFromDatabase(adapter)
-    }
-
-    private fun fetchStoriesFromDatabase(adapter: SuccessStoriesAdapter) {
-        lifecycleScope.launch(Dispatchers.Main) {
-            val storyList = withContext(Dispatchers.IO) { SuccessStoriesCrud.getStories() }
-            Log.e("SuccessStoriesScreen", "fetchStoriesFromDatabase: $storyList")
-
-            if (storyList.isEmpty()) {
-                binding.successStoriesTxt.visibility = View.GONE
+    private fun setupOurWorksRV() {
+        val recyclerView = binding.ourWorksRV
+        val adapter = OurWorkAdapter { work ->
+            // Handle click - open full screen image/video viewer
+            if (work.mediaType == "video") {
+                // Open video in browser or video player
+                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(work.mediaUrl))
+                startActivity(intent)
             } else {
-                adapter.diff.submitList(storyList)
+                // Open full screen image viewer
+                val intent = Intent(this, FullScreenImageActivity::class.java)
+                intent.putExtra(FullScreenImageActivity.EXTRA_IMAGE_URL, work.mediaUrl)
+                startActivity(intent)
             }
         }
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        // Static list of Our Works from Cloudinary
+        val workList = listOf(
+            OurWork(
+                id = "1",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/video/upload/v1771068257/video1_kyiet9.mp4",
+                mediaType = "video"
+            ),
+            OurWork(
+                id = "2",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1771068255/image1_sv4bbu.jpg",
+                mediaType = "image"
+            ),
+            OurWork(
+                id = "3",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1771068255/image2_v1q9xj.jpg",
+                mediaType = "image"
+            ),
+            OurWork(
+                id = "4",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1771068255/image3_jfxfp9.jpg",
+                mediaType = "image"
+            ),
+            OurWork(
+                id = "5",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1771068255/image4_lcf7ko.jpg",
+                mediaType = "image"
+            )
+        )
+        adapter.diff.submitList(workList)
     }
 
     private fun setupNavigationDrawer() {

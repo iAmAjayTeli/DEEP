@@ -9,6 +9,12 @@ plugins {
     id("com.google.firebase.crashlytics")
 }
 
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+    }
+}
+
 android {
     namespace = "com.deep.eyedonation"
     compileSdk = 36
@@ -17,8 +23,8 @@ android {
         applicationId = "com.deep.eyedonation"
         minSdk = 26
         targetSdk = 36
-        versionCode = 5
-        versionName = "1.0.3"
+        versionCode = 6
+        versionName = "1.0.4"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         val properties = Properties()
@@ -41,7 +47,7 @@ android {
     }
 
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += "META-INF/NOTICE.md"
             excludes += "META-INF/LICENSE.md"
@@ -68,22 +74,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
 
     buildFeatures {
         dataBinding = true
-    }
-
-    buildFeatures {
         buildConfig = true
     }
 
-    firebaseCrashlytics{
+    firebaseCrashlytics {
         nativeSymbolUploadEnabled = true
     }
-
 }
 
 dependencies {

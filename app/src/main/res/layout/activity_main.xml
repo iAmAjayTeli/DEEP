@@ -248,69 +248,27 @@
                             android:layout_marginBottom="10dp"
                             android:background="@android:color/darker_gray" />
 
+
+                        <!-- Our Works Section -->
                         <TextView
-                            android:id="@+id/textView6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="25dp"
-                            android:fontFamily="@font/lexend"
-                            android:gravity="center"
-                            android:text="Meet Lorie Gordon "
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
-                            app:cardCornerRadius="100dp">
-
-
-                            <ImageView
-                                android:id="@+id/imageView3"
-                                android:layout_width="190dp"
-                                android:layout_height="150dp"
-                                app:srcCompat="@drawable/loriegordon" />
-                        </androidx.cardview.widget.CardView>
-
-
-                        <TextView
-                            android:id="@+id/textView7"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginBottom="50dp"
-                            android:fontFamily="@font/lexend"
-                            android:justificationMode="inter_word"
-                            android:text="&quot;I think it's a miracle. I'm able to see again and there's no price you can put on that &quot;"
-                            android:textSize="20sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/successStoriesTxt"
+                            android:id="@+id/ourWorksTxt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/lexend"
-                            android:text="Our Success Stories"
+                            android:text="Our Works"
                             android:textAlignment="center"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/successStoriesRV"
+                            android:id="@+id/ourWorksRV"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="15sp" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:clipToPadding="false"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp" />
 
                         <View
                             android:layout_width="match_parent"
