@@ -217,22 +217,28 @@ class MainActivity : AppCompatActivity() {
             ),
             OurWork(
                 id = "2",
-                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1771068255/image1_sv4bbu.jpg",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1774615365/WhatsApp_Image_2026-02-17_at_1.51.27_PM_lbqmq0.jpg",
                 mediaType = "image"
             ),
             OurWork(
                 id = "3",
-                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1771068255/image2_v1q9xj.jpg",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1774615365/WhatsApp_Image_2026-02-17_at_1.51.29_PM_wb4bl1.jpg",
                 mediaType = "image"
             ),
             OurWork(
                 id = "4",
-                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1771068255/image3_jfxfp9.jpg",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1774615364/WhatsApp_Image_2026-02-17_at_1.51.26_PM_gjollt.jpg",
                 mediaType = "image"
             ),
             OurWork(
                 id = "5",
-                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1771068255/image4_lcf7ko.jpg",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1774615343/WhatsApp_Image_2026-02-17_at_1.51.25_PM_god8ur.jpg",
+                mediaType = "image"
+            ),
+
+            OurWork(
+                id = "6",
+                mediaUrl = "https://res.cloudinary.com/de0rfksfd/image/upload/v1774615342/WhatsApp_Image_2026-02-17_at_1.51.25_PM_1_chgck5.jpg",
                 mediaType = "image"
             )
         )

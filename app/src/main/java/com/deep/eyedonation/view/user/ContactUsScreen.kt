@@ -40,7 +40,7 @@ class ContactUsScreen : AppCompatActivity() {
 
         binding.whatsapp.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://wa.me/+919033464399")
+            intent.data = Uri.parse("https://wa.me/+919875173692")
             startActivity(intent)
         }
 
@@ -52,7 +52,7 @@ class ContactUsScreen : AppCompatActivity() {
 
         binding.mobileNum.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:+91 9033464399")
+            intent.data = Uri.parse("tel:+91 9875173692")
             startActivity(intent)
         }
     }
